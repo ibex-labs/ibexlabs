@@ -34,8 +34,8 @@ import {timelineOppositeContentClasses} from "@mui/lab";
 import CodeBlock from "./codeblock";
 
 const icons = [
-    <TS title={'Typescript'} />,
-    <Rust title={'Rust'} />,
+    <Tooltip title={'Typescript'}><TS /></Tooltip>,
+    <Tooltip title={'Rust'}><Rust /></Tooltip>,
     <Tooltip title={'PostgreSQL'}><PG /></Tooltip>,
 ];
 
@@ -85,7 +85,7 @@ export default function CustomizedTimeline() {
         <Grid container spacing={2}>
             <Grid item xs={12}>
                 <Item>
-                    <Link href={'https://nation.io'} target={'_blank'} underline={'always'}><Typography variant="h6" component="span">nation.io</Typography></Link>
+                    <Link href={'https://nation.io'} target={'_blank'} underline={'always'}><Typography variant="body1" component="span">nation.io</Typography></Link>
                 </Item>
                 <Item>
                     <ImageList  sx={{width: icons.length * 22 , height: 30, paddingTop: 1}} cols={icons.length}>
@@ -111,7 +111,7 @@ export default function CustomizedTimeline() {
             <Grid item xs={12} sm={12} md={9} lg={10}>
                 <Item>
                     <Typography variant={'body2'}>Shopify widget implementing several real-time pricing models</Typography>
-                    <Typography variant={'caption'}>AWS Rust lambdas against serverless PostgreSQL</Typography>
+                    <Typography variant={'caption'}>Rust on AWS lambdas against serverless PostgreSQL</Typography>
                 </Item>
             </Grid>
         </Grid>

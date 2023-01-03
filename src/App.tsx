@@ -5,12 +5,25 @@ import type {} from '@mui/lab/themeAugmentation';
 import CustomizedTimeline from "./components/timeline";
 import * as Scroll from "react-scroll";
 import {Link, Element} from "react-scroll";
-import {Container, createTheme, CssBaseline, Paper, Stack, styled, ThemeProvider} from '@mui/material';
+import {
+  AppBar,
+  Box, Button,
+  Container,
+  createTheme,
+  CssBaseline, Divider,
+  IconButton,
+  Paper,
+  Stack,
+  styled,
+  ThemeProvider, Toolbar
+} from '@mui/material';
 import Typography from "@mui/material/Typography";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import * as m from "@mui/icons-material";
+import TeamCards from "./components/team";
 // When using TypeScript 3.x and below
 //import '@mui/lab/themeAugmentation';
 
@@ -40,28 +53,35 @@ const darkTheme = createTheme({
   },
 });
 
-
 function App() {
   return (
       <ThemeProvider theme={darkTheme}>
         <CssBaseline/>
         <main>
-
-          <div className="App">
-      <header className="text-gray-600 body-font">
-        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <img src={'./ibex192.png'} width={50} height={70} />
-            <span className="ml-3 text-xl">Ibex Labs</span>
-          </a>
-          <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-            <Link to={'timeline'} className="mr-5 hover:text-gray-900">Timeline</Link>
-            <Link to={"about"} className="mr-5 hover:text-gray-900">About</Link>
-          </nav>
-        </div>
-      </header>
+          <Box sx={{ flexGrow: 1 }}>
+            <AppBar color={'transparent'} position="static">
+              <Toolbar>
+                {/*<IconButton
+                    size="large"
+                    edge="start"
+                    color="inherit"
+                    aria-label="menu"
+                    sx={{ mr: 2 }}
+                >
+                  <m.Menu />
+                </IconButton>*/}
+                <img src={'./ibex192.png'} alt={'Ibex Labs'} width={50} height={70} />
+                <Divider> </Divider>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                  Ibex Labs
+                </Typography>
+                {/*<Link to={'timeline'} className="mr-5 hover:text-gray-900">Timeline</Link>
+                <Link to={"about"} className="mr-5 hover:text-gray-900">About</Link>*/}
+              </Toolbar>
+            </AppBar>
+          </Box>
       <Container>
-        <Stack spacing={2}>
+        <Stack paddingTop={1} spacing={2}>
           <Item>
             <Element name={'timeline'}>
               <Typography variant={'body1'} align={'left'}>Timeline</Typography>
@@ -72,16 +92,16 @@ function App() {
             <Element name={'about'}>
               <Typography variant={'body1'} align={'left'}>About</Typography>
               <br/>
-              <Typography align={'center'} variant={'body2'}> Ibex Labs, Ltd seeks to connect young, bright Bulgarian software engineers to tech companies in the United States and Europe </Typography>
+              <Typography align={'center'} variant={'body2'}> Ibex Labs, Ltd seeks to connect bright, young Bulgarian software engineers to tech companies in the United States and Europe </Typography>
             </Element>
           </Item>
-
+          <Item>
+            <Typography variant={'body1'} align={'left'}>Team</Typography>
+            <TeamCards/>
+          </Item>
         </Stack>
       </Container>
-    </div>
-
-        </main>
-
+    </main>
       </ThemeProvider>
   );
 }
