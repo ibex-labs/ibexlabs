@@ -29,7 +29,7 @@ import {
 } from "@mui/material";
 import {timelineOppositeContentClasses} from "@mui/lab";
 import CodeBlock from "./codeblock";
-import {AddCircle, Image} from "@mui/icons-material";
+import {AddCircle, Image, KeyboardArrowUp} from "@mui/icons-material";
 import {Deno, Postgres, Redis, Rust, Solana, Supabase, TS, Vercel} from "./logo";
 import {ReactComponent as Vellum} from "../assets/VellumLogo.svg";
 
@@ -97,7 +97,10 @@ export default function CustomizedTimeline() {
             </Grid>
             <br/>
             <Grid item xs={12} sm={10} md={2}>
-                <Item ><Link sx={{margin: '0 auto'}} href={"https://onvellum.com"} target={'_blank'}><Vellum  width={60} height={40}/></Link></Item>
+                <Item ><Link sx={{margin: '0 auto'}} href={"https://onvellum.com"} target={'_blank'}>
+                    <Vellum width={60} height={40}/></Link>
+                    <KeyboardArrowUp/> click icons for more details
+                </Item>
             </Grid>
             <Grid item xs={12} sm={10} md={10}>
                 <Item>
@@ -118,7 +121,7 @@ export default function CustomizedTimeline() {
                     <Typography variant={'caption'}>Next.js service on Vercel with Supabase (postgres, realtime sockets, blob storage) backend and Solana contracts in Rust for writing documents to the blockchain and running post-execution</Typography>
                 </Item>
             </Grid>
-            <Grid item xs={12} sm={12} md={2} lg={1}>
+            <Grid item xs={12} sm={12} md={2}>
                 {/*<pre><code children={'auction-engine'}></code></pre>*/}
                 <Item>
                     <Link sx={{margin: '0 auto'}} href={"https://caro.bid"} target={"_blank"}>
@@ -131,7 +134,7 @@ export default function CustomizedTimeline() {
                 <Item>
                     <Typography variant={'body2'}>An auction engine implementing several real-time auction formats served as a Shopify widget that can be embedded in anyone's storefront. The following is a brief presentation given by our CEO Ryan Shea about Caro</Typography>
                     <video width="400" height="310" controls>
-                        <source src="caro-presentation.mp4" type="video/mp4"/>
+                        <source src="https://github.com/amilkov3/ibexlabs/raw/0267d34391f5233ef432f9b1bf94adbada844e07/public/caro-presentation.mp4" type="video/mp4"/>
                     </video>
                     <ImageList  sx={{width: icons.length * 22 , height: 30, paddingTop: 1}} cols={icons.length}>
                         {[<Rust/>, <Postgres/>].map((x, i) =>
@@ -180,6 +183,27 @@ export default function CustomizedTimeline() {
                     </Typography>
                     <img src={'denoload.png'} width={600} height={400}></img>
                 </Item>
+            </Grid>
+            <Grid item xs={12} sm={12} md={2}>
+                {/*<pre><code children={'auction-engine'}></code></pre>*/}
+                <Item>
+                    <Link sx={{margin: '0 auto'}} href={"https://nation.io"} target={"_blank"}>
+                        <Nation width={40} height={40}/>
+                    </Link>
+                    (core)
+                </Item>
+            </Grid>
+            <Grid item xs={12} sm={12} md={9}>
+                <Typography variant={'body2'}>
+                    Nation was originally started with the intent of being the DAO (decentralized autonomous organization)
+                    platform for Solana. The core platform allows users to create organizations to collect funds for causes,
+                    vote on proposals, and other things
+                </Typography>
+                <ImageList  sx={{width: icons.length * 22 , height: 30, paddingTop: 1}} cols={icons.length}>
+                    {[<Supabase/>, <Vercel/>].map((x, i) =>
+                        <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
+                    )}
+                </ImageList>
             </Grid>
         </Grid>
 

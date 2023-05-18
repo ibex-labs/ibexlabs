@@ -92,7 +92,7 @@ function App() {
             <Element name={'about'}>
               <Typography variant={'body1'} align={'left'}>About</Typography>
               <br/>
-              <Typography align={'center'} variant={'body2'}> Ibex Labs, Ltd seeks to connect bright, young Bulgarian software engineers to tech companies in the United States and Europe </Typography>
+              <Typography align={'center'} variant={'body2'}> Ibex Labs, Ltd seeks to connect bright, young software engineers to tech companies across the world </Typography>
             </Element>
           </Item>
           <Item>
