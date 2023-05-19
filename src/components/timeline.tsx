@@ -29,9 +29,10 @@ import {
 } from "@mui/material";
 import {timelineOppositeContentClasses} from "@mui/lab";
 import CodeBlock from "./codeblock";
-import {AddCircle, Image, KeyboardArrowUp} from "@mui/icons-material";
+import {AddCircle,  KeyboardArrowUp} from "@mui/icons-material";
 import {Deno, Postgres, Redis, Rust, Solana, Supabase, TS, Vercel} from "./logo";
 import {ReactComponent as Vellum} from "../assets/VellumLogo.svg";
+import {Image} from "mui-image";
 
 const icons = [
     <TS/>,
@@ -121,14 +122,14 @@ export default function CustomizedTimeline() {
                     <Typography variant={'caption'}>Next.js service on Vercel with Supabase (postgres, realtime sockets, blob storage) backend and Solana contracts in Rust for writing documents to the blockchain and running post-execution</Typography>
                 </Item>
             </Grid>
+            {/*sx={{ display: 'flex', textAlign: "center" }}*/}
             <Grid item xs={12} sm={12} md={2}>
-                {/*<pre><code children={'auction-engine'}></code></pre>*/}
-                <Item>
-                    <Link sx={{margin: '0 auto'}} href={"https://caro.bid"} target={"_blank"}>
-                        <img src={"apple-touch-icon.png"} width={40} height={40}/>
-                    </Link>
-                    <Typography variant={'body2'}>Caro</Typography>
-                </Item>
+                {/*sx={{alignItems:'center', margin: '0 0', padding: 0, color: 'inherit', textDecoration: 'inherit'}}*/}
+                <Link href={"https://caro.bid"} target={"_blank"}>
+                    {/*<Image src={"apple-touch-icon.png"} width={40} height={40}></Image>*/}
+                    <Image src={'caro-black.png'} width={65} height={45}/>
+                </Link>
+                {/*<Typography sx={{verticalAlign:'center', marginTop: '5px' , marginLeft: '2px', color: '#75db00', fontWeight: 'bold'}}>Caro</Typography>*/}
             </Grid>
             <Grid item xs={12} sm={12} md={9}>
                 <Item>
