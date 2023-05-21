@@ -98,8 +98,11 @@ export default function CustomizedTimeline() {
             </Grid>
             <br/>
             <Grid item xs={12} sm={10} md={2}>
-                <Item ><Link sx={{margin: '0 auto'}} href={"https://onvellum.com"} target={'_blank'}>
-                    <Vellum width={60} height={40}/></Link>
+                <Item>
+                    <Link sx={{margin: '0 auto'}} href={"https://onvellum.com"} target={'_blank'}>
+                        <Vellum width={60} height={40}/>
+                        {/*<Image src={"assets/VellumLogo.svg"} width={60} height={40}/>*/}
+                    </Link>
                     <KeyboardArrowUp/> click icons for more details
                 </Item>
             </Grid>
@@ -133,7 +136,7 @@ export default function CustomizedTimeline() {
             </Grid>
             <Grid item xs={12} sm={12} md={9}>
                 <Item>
-                    <Typography variant={'body2'}>An auction engine implementing several real-time auction formats served as a Shopify widget that can be embedded in anyone's storefront. The following is a brief presentation given by our CEO Ryan Shea about Caro</Typography>
+                    <Typography variant={'body2'}>An auction engine implementing several real-time auction formats served as a Shopify widget that can be embedded in anyone's storefront. The following is a brief presentation given by Nation's CEO Ryan Shea about Caro</Typography>
                     <video width="400" height="310" controls>
                         <source src="https://github.com/amilkov3/ibexlabs/raw/0267d34391f5233ef432f9b1bf94adbada844e07/public/caro-presentation.mp4" type="video/mp4"/>
                     </video>
@@ -201,7 +204,7 @@ export default function CustomizedTimeline() {
                     vote on proposals, and other things
                 </Typography>
                 <ImageList  sx={{width: icons.length * 22 , height: 30, paddingTop: 1}} cols={icons.length}>
-                    {[<Supabase/>, <Vercel/>].map((x, i) =>
+                    {[<Supabase/>, <Vercel/>, <Solana/>].map((x, i) =>
                         <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
                     )}
                 </ImageList>

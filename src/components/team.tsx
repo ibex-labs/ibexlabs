@@ -14,12 +14,12 @@ import {Mail, Telegram} from "@mui/icons-material";
 import {ImageList, ImageListItem, Link} from "@mui/material";
 import {
     Clojure,
-    ClojureFull,
+    ClojureFull, Deno,
     Go,
     GoFull,
     HaskellFull,
     Python,
-    PythonFull,
+    PythonFull, Redis,
     Rust,
     RustFull,
     Scala,
@@ -96,16 +96,25 @@ export default function TeamCards() {
                                     </Typography>
                                     <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
                                         <Stack direction="column" spacing={2}>
-                                            <ImageList sx={{width: 100 , height: member.skills.length * 80, paddingTop: 1}} cols={1}>
+                                            {/*<ImageList sx={{width: 100 , height: member.skills.length * 80, paddingTop: 1}} cols={1}>
                                                 {member.skills.map(([x, sc, str], i) =>
                                                     <ImageListItem key={i}>
                                                         {
+                                                            // @ts-ignore
                                                         React.cloneElement(x, {
                                                         //transform: `scale(${sc})`,
                                                         width: 100,
                                                         height: 50,
                                                         //viewBox: '0 0 80 40'
                                                         })}
+                                                        <Typography variant={"caption"}>{str}</Typography>
+                                                    </ImageListItem>
+                                                )}
+                                            </ImageList>*/}
+                                            <ImageList  sx={{width: 305, height: 200, paddingTop: 1}} cols={3}>
+                                                {member.skills.map(([x, sc, str], i) =>
+                                                    <ImageListItem key={i}>
+                                                        {React.cloneElement(x, {width: 100, height: 40})}
                                                         <Typography variant={"caption"}>{str}</Typography>
                                                     </ImageListItem>
                                                 )}
