@@ -11,22 +11,52 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import {Mail, Telegram} from "@mui/icons-material";
-import {Link} from "@mui/material";
+import {ImageList, ImageListItem, Link} from "@mui/material";
+import {
+    Clojure,
+    ClojureFull,
+    Go,
+    GoFull,
+    HaskellFull,
+    Python,
+    PythonFull,
+    Rust,
+    RustFull,
+    Scala,
+    ScalaFull,
+    TS
+} from "./logo";
 
 const members = [
     {
         name: "Alex Milkov",
         bg: "Алекcандър Милков",
         job: "Founder",
-        image: "alex.jpg"
+        image: "alex.jpg",
+        skills: [
+            [<GoFull/>, .5, '3yrs'],
+            [<RustFull/>, .2, '3yrs'],
+            [<TS/>, .5, '3yrs'],
+            [<PythonFull/>, .25, '4yrs'],
+            [<ScalaFull/>, .75, '3yrs'],
+            [<HaskellFull/>, .8, '2yrs'],
+            [<ClojureFull/>, .6, '1yr'],
+        ],
+        technologies: [
+            [<GoFull/>, .5, '3yrs'],
+            [<RustFull/>, .2, '3yrs'],
+            [<TS/>, .5, '3yrs'],
+            [<PythonFull/>, .25, '4yrs'],
+            [<ScalaFull/>, .75, '3yrs'],
+            [<HaskellFull/>, .8, '2yrs'],
+            [<ClojureFull/>, .6, '1yr'],
+        ],
+        socials: [
+            { name: "Facebook", icon: <Link href={'https://t.me/amilkov3'} target={'_blank'} ><Telegram /></Link>  },
+            { name: "Mail", icon: <Link href={'mailto:alex@ibext.trade'} target={'_blank'}><Mail/></Link> },
+            { name: "Resume", icon: <Link href={'https://milkov.tech/resume/resume.pdf'} target={'_blank'}><Typography variant={'caption'}>Resume</Typography></Link>}
+        ]
     },
-];
-
-const socials = [
-    { name: "Facebook", icon: <Link href={'https://t.me/amilkov3'} target={'_blank'} ><Telegram /></Link>  },
-    { name: "Mail", icon: <Link href={'mailto:alex@ibext.trade'} target={'_blank'}><Mail/></Link> },
-    { name: "Resume", icon: <Link href={'https://milkov.tech/resume/resume.pdf'} target={'_blank'}><Typography variant={'caption'}>Resume</Typography></Link>}
-    //{ name: "Twitter", icon: <TwitterIcon /> },
 ];
 
 export default function TeamCards() {
@@ -65,7 +95,30 @@ export default function TeamCards() {
                                         {member.job}
                                     </Typography>
                                     <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
-                                        {socials.map((social) => (
+                                        <Stack direction="column" spacing={2}>
+                                            <ImageList sx={{width: 100 , height: member.skills.length * 80, paddingTop: 1}} cols={1}>
+                                                {member.skills.map(([x, sc, str], i) =>
+                                                    <ImageListItem key={i}>
+                                                        {
+                                                        React.cloneElement(x, {
+                                                        //transform: `scale(${sc})`,
+                                                        width: 100,
+                                                        height: 50,
+                                                        //viewBox: '0 0 80 40'
+                                                        })}
+                                                        <Typography variant={"caption"}>{str}</Typography>
+                                                    </ImageListItem>
+                                                )}
+                                            </ImageList>
+                                        </Stack>
+                                        {/*<Stack direction="column" spacing={2}>
+                                            {member.skills.map((skill) =>
+                                                <Typography variant={'caption'}>{skill}</Typography>
+                                            )}
+                                        </Stack>*/}
+                                    </Stack>
+                                    <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
+                                        {member.socials.map((social) => (
                                             <IconButton
                                                 key={social.name}
                                                 aria-label={social.name}

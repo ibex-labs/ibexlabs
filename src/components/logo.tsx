@@ -9,14 +9,45 @@ import {ReactComponent as VercelLogo} from "../assets/vercel.svg";
 import {ReactComponent as SolanaLogo} from "../assets/solana.svg";
 import {ReactComponent as RedisLogo} from "../assets/redis.svg";
 import {ReactComponent as DenoLogo} from "../assets/deno.svg";
+import {ReactComponent as GoLogo} from "../assets/gopher.svg";
+import {ReactComponent as PythonLogo} from "../assets/python.svg";
+import {ReactComponent as ScalaLogo} from "../assets/scala.svg";
+
+import {ReactComponent as TSFullLogo} from "../assets/typescript-full.svg";
+import {ReactComponent as RustFullLogo} from "../assets/rust-full.svg";
+//import {ReactComponent as PGFullLogo} from "../assets/postgresql-full.svg";
+import {ReactComponent as SBFull} from "../assets/supabase-full.svg";
+//import {ReactComponent as VercelLogo} from "../assets/vercel.svg";
+//import {ReactComponent as SolanaLogo} from "../assets/solana.svg";
+import {ReactComponent as RedisFullLogo} from "../assets/redis-full.svg";
+//import {ReactComponent as DenoLogo} from "../assets/deno.svg";
+import {ReactComponent as GoFullLogo} from "../assets/golang-full.svg";
+import {ReactComponent as PythonFullLogo} from "../assets/python-full.svg";
+import {ReactComponent as ScalaFullLogo} from "../assets/scala-full.svg";
+import {ReactComponent as HaskellLogo} from "../assets/haskell.svg";
+import {ReactComponent as HaskellFullLogo} from "../assets/haskell-full.svg";
+import {ReactComponent as ClojureLogo} from "../assets/clojure.svg";
+import {ReactComponent as ClojureFullLogo} from "../assets/clojure-full.svg";
 
 export const TS = (props: any) => <Tooltip title={'Typescript'} {...props}><TSLogo/></Tooltip>;
+export const TSFull = (props: any) => <Tooltip title={'Typescript'} {...props}><TSFullLogo/></Tooltip>;
 export const Postgres = (props: any) => <Tooltip title={'PostgreSQL'} {...props}><PG/></Tooltip>;
+export const PostgresFull = (props: any) => <Tooltip title={'PostgreSQL'} {...props}><PG/></Tooltip>;
 
 export const Supabase = (props: any) => <Tooltip title={'Supabase'} {...props}><SB/></Tooltip>;
 export const Vercel = (props: any) => <Tooltip title={'Vercel'} {...props}><VercelLogo/></Tooltip>
 export const Solana = (props: any) => <Tooltip title={'Solana'} {...props}><SolanaLogo/></Tooltip>
 export const Redis = (props: any) => <Tooltip title={'Redis'} {...props}><RedisLogo/></Tooltip>
 export const Rust = (props: any) => <Tooltip title={'Rust'} {...props}><RustLogo/></Tooltip>
-
+export const RustFull = (props: any) => <Tooltip title={'Rust'} {...props}><RustFullLogo/></Tooltip>
 export const Deno = (props: any) => <Tooltip title={'Deno'} {...props}><DenoLogo/></Tooltip>
+export const Go = (props: any) => <Tooltip title={'Golang'} {...props}><GoLogo/></Tooltip>
+export const GoFull = (props: any) => <Tooltip title={'Golang'} {...props}><GoFullLogo/></Tooltip>
+export const Python = (props: any) => <Tooltip title={'Python'} {...props}><PythonLogo/></Tooltip>
+export const PythonFull = (props: any) => <Tooltip title={'Python'} {...props}><PythonFullLogo/></Tooltip>
+export const Scala = (props: any) => <Tooltip title={'Scala'} {...props}><ScalaLogo/></Tooltip>
+export const ScalaFull = (props: any) => <Tooltip title={'Scala'} {...props}><ScalaFullLogo/></Tooltip>
+export const Haskell = (props: any) => <Tooltip title={'Haskell'} {...props}><HaskellLogo/></Tooltip>
+export const HaskellFull = (props: any) => <Tooltip title={'Haskell'} {...props}><HaskellFullLogo/></Tooltip>
+export const Clojure = (props: any) => <Tooltip title={'Clojure'} {...props}><ClojureLogo/></Tooltip>
+export const ClojureFull = (props: any) => <Tooltip title={'Clojure'} {...props}><ClojureFullLogo/></Tooltip>

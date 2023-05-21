@@ -207,23 +207,6 @@ export default function CustomizedTimeline() {
                 </ImageList>
             </Grid>
         </Grid>
-
-        <Typography>
-            {/*<Divider variant={'middle'} light={true}/>*/}
-
-
-            {/*<List sx={{ width: '100%', maxWidth: 600, bgcolor: 'background.paper' }}>
-                <ListItem>
-                    <Link href={"https://onvellum.com"}><Vellum  width={60} height={40}/></Link>
-                    <Divider>  </Divider>
-                    <Typography variant={'body2'}> onchain docusign implemented against the Solana blockchain</Typography>
-                </ListItem>
-                <ListItem>
-
-
-                </ListItem>
-            </List>*/}
-        </Typography>
     </TimelineContent>
     </TimelineItem>
     </Timeline>
