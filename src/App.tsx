@@ -24,6 +24,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import * as m from "@mui/icons-material";
 import TeamCards from "./components/team";
+import {Services} from "./components/services";
 // When using TypeScript 3.x and below
 //import '@mui/lab/themeAugmentation';
 
@@ -87,6 +88,10 @@ function App() {
               <Typography variant={'body1'} align={'left'}>Timeline</Typography>
               <CustomizedTimeline/>
             </Element>
+          </Item>
+          <Item>
+            <Typography variant={'body1'} align={'left'}>Services</Typography>
+            <Services/>
           </Item>
           <Item>
             <Element name={'about'}>

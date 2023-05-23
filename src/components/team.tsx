@@ -111,10 +111,10 @@ export default function TeamCards() {
                                                     </ImageListItem>
                                                 )}
                                             </ImageList>*/}
-                                            <ImageList  sx={{width: 305, height: 200, paddingTop: 1}} cols={3}>
+                                            <ImageList  sx={{width: 305, height: 200}} cols={3}>
                                                 {member.skills.map(([x, sc, str], i) =>
                                                     <ImageListItem key={i}>
-                                                        {React.cloneElement(x, {width: 100, height: 40})}
+                                                        {React.cloneElement(x, {width: 90, height: 35})}
                                                         <Typography variant={"caption"}>{str}</Typography>
                                                     </ImageListItem>
                                                 )}
