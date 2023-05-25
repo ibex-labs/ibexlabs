@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.7d86c636.css",
-    "main.js": "/static/js/main.e247922a.js",
+    "main.js": "/static/js/main.3ed396d9.js",
     "static/js/787.37eac4dc.chunk.js": "/static/js/787.37eac4dc.chunk.js",
     "static/media/roboto-all-500-normal.woff": "/static/media/roboto-all-500-normal.0ab669b7a0d19b178f57.woff",
     "static/media/roboto-all-700-normal.woff": "/static/media/roboto-all-700-normal.a457fde362a540fcadff.woff",
@@ -42,6 +42,7 @@
     "static/media/python-full.svg": "/static/media/python-full.04d2928f47adc086285930dfdf3a9f1b.svg",
     "static/media/haskell-full.svg": "/static/media/haskell-full.9f3a24e90008a6c786fef8c5b9802a43.svg",
     "static/media/clojure-full.svg": "/static/media/clojure-full.fa407135a12c8d6bee52592f3f521448.svg",
+    "static/media/otoy.svg": "/static/media/otoy.4773db61e792f295e59cc8876cbc35da.svg",
     "static/media/redis.svg": "/static/media/redis.2fcdc25cae6d651b486e1b3c98bcae15.svg",
     "static/media/solana.svg": "/static/media/solana.16cf052591af5db073aca3050cfe8276.svg",
     "static/media/VellumLogo.svg": "/static/media/VellumLogo.4a6fe0b41cc0ed66cc1f07f13f156e01.svg",
@@ -59,11 +60,11 @@
     "static/media/haskell.svg": "/static/media/haskell.b93ff47fef2bc74e1abce46373d1af6a.svg",
     "static/media/vercel.svg": "/static/media/vercel.bd138020c73f5af4b43a44e82fa05ab2.svg",
     "main.7d86c636.css.map": "/static/css/main.7d86c636.css.map",
-    "main.e247922a.js.map": "/static/js/main.e247922a.js.map",
+    "main.3ed396d9.js.map": "/static/js/main.3ed396d9.js.map",
     "787.37eac4dc.chunk.js.map": "/static/js/787.37eac4dc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7d86c636.css",
-    "static/js/main.e247922a.js"
+    "static/js/main.3ed396d9.js"
   ]
 }
