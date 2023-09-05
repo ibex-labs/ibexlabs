@@ -28,6 +28,10 @@ import {ReactComponent as HaskellLogo} from "../assets/haskell.svg";
 import {ReactComponent as HaskellFullLogo} from "../assets/haskell-full.svg";
 import {ReactComponent as ClojureLogo} from "../assets/clojure.svg";
 import {ReactComponent as ClojureFullLogo} from "../assets/clojure-full.svg";
+import {ReactComponent as KubernetesLogo} from "../assets/kubernetes.svg";
+import {ReactComponent as DockerLogo} from "../assets/docker.svg";
+import {ReactComponent as GrafanaLogo} from "../assets/grafana.svg";
+import {ReactComponent as PrometheusLogo} from "../assets/prometheus.svg";
 
 export const TS = (props: any) => <Tooltip title={'Typescript'} {...props}><TSLogo/></Tooltip>;
 export const TSFull = (props: any) => <Tooltip title={'Typescript'} {...props}><TSFullLogo/></Tooltip>;
@@ -51,3 +55,7 @@ export const Haskell = (props: any) => <Tooltip title={'Haskell'} {...props}><Ha
 export const HaskellFull = (props: any) => <Tooltip title={'Haskell'} {...props}><HaskellFullLogo/></Tooltip>
 export const Clojure = (props: any) => <Tooltip title={'Clojure'} {...props}><ClojureLogo/></Tooltip>
 export const ClojureFull = (props: any) => <Tooltip title={'Clojure'} {...props}><ClojureFullLogo/></Tooltip>
+export const Kubernetes = (props: any) => <Tooltip title={'Kubernetes'} {...props}><KubernetesLogo/></Tooltip>
+export const Docker = (props: any) => <Tooltip title={'Docker'} {...props}><DockerLogo/></Tooltip>
+export const Grafana = (props: any) => <Tooltip title={'Grafana'} {...props}><GrafanaLogo/></Tooltip>
+export const Prometheus = (props: any) => <Tooltip title={'Prometheus'} {...props}><PrometheusLogo/></Tooltip>

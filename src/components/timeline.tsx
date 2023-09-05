@@ -15,30 +15,50 @@ import Typography from '@mui/material/Typography';
 import {ReactComponent as Nation} from "../nation-logo.svg";
 import {ReactComponent as Otoy} from "../assets/otoy.svg";
 import {
-    Divider,
-    Grid,
-    ImageList,
-    ImageListItem,
-    Link,
-    List,
-    ListItem,
-    Paper, Stack,
-    styled,
-    SvgIcon,
-    Tooltip,
-    Box, ListItemText
+  Divider,
+  Grid,
+  ImageList,
+  ImageListItem,
+  Link,
+  List,
+  ListItem,
+  Paper, Stack,
+  styled,
+  SvgIcon,
+  Tooltip,
+  Box, ListItemText, Collapse, IconButtonProps
 } from "@mui/material";
 import {timelineOppositeContentClasses} from "@mui/lab";
 import CodeBlock from "./codeblock";
 import {AddCircle,  KeyboardArrowUp} from "@mui/icons-material";
-import {Deno, Postgres, Redis, Rust, Solana, Supabase, TS, Vercel} from "./logo";
+import {
+    Deno,
+    Docker,
+    Grafana,
+    Kubernetes,
+    Postgres,
+    Prometheus,
+    Redis,
+    Rust,
+    Solana,
+    Supabase,
+    TS,
+    Vercel
+} from "./logo";
 import {ReactComponent as Vellum} from "../assets/VellumLogo.svg";
 import {Image} from "mui-image";
+import {useState} from "react";
+import IconButton from "@mui/material/IconButton";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const icons = [
+const nationIcons = [
     <TS/>,
     <Rust/>,
     <Postgres/>
+];
+const renderIcons = [
+    <TS/>,
+    <Rust/>,
 ];
 
 const Div = styled('div')(({ theme }) => ({
@@ -60,7 +80,26 @@ const CodeItem = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
+
+interface ExpandMoreProps extends IconButtonProps {
+    expand: boolean;
+}
+
+const ExpandMore = styled((props: ExpandMoreProps) => {
+    const { expand, ...other } = props;
+    return <IconButton {...other} />;
+})(({ theme, expand }) => ({
+    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shortest,
+    }),
+}));
+
 export default function CustomizedTimeline() {
+
+    const [caroExpanded, setCaroExpanded] = useState(false)
+
     return (
         <Timeline  sx={{
             [`& .${timelineOppositeContentClasses.root}`]: {
@@ -90,8 +129,8 @@ export default function CustomizedTimeline() {
                                 <Link href={'https://nation.io'} target={'_blank'} underline={'always'}><Typography variant="body1" component="span">nation.io</Typography></Link>
                             </Item>
                             <Item>
-                                <ImageList  sx={{width: icons.length * 22 , height: 30, paddingTop: 1}} cols={icons.length}>
-                                {icons.map((x, i) =>
+                                <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
+                                {nationIcons.map((x, i) =>
                                     <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
                                 )}
                                 </ImageList>
@@ -114,7 +153,7 @@ export default function CustomizedTimeline() {
                                     <li>* ability to draft documents with GPT-4 integration </li>
                                     <li>* post-execution: run actions once the document has been signed like transfering funds from one account to another </li>
                                 </ul>
-                                <ImageList  sx={{width: icons.length * 22 , height: 30, paddingTop: 1}} cols={icons.length}>
+                                <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
                                     {[
                                         <Supabase/>,
                                         <Vercel/>,
@@ -141,52 +180,66 @@ export default function CustomizedTimeline() {
                                 <video width="400" height="310" controls>
                                     <source src="https://github.com/amilkov3/ibexlabs/raw/0267d34391f5233ef432f9b1bf94adbada844e07/public/caro-presentation.mp4" type="video/mp4"/>
                                 </video>
-                                <ImageList  sx={{width: icons.length * 22 , height: 30, paddingTop: 1}} cols={icons.length}>
-                                    {[<Rust/>, <Postgres/>].map((x, i) =>
+                                <ImageList  sx={{width: 4 * 25 , height: 30, paddingTop: 1}} cols={4}>
+                                    {[<Rust/>, <Postgres/>, <Deno/>, <Redis/>].map((x, i) =>
                                         <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
                                     )}
                                 </ImageList>
-                                <Typography variant={'caption'}>The service began as a Rust backend using actix. In order to achieve
-                                    the lowest latency possible an HFT-like architecture was used where each auction was assigned to a node
-                                    and loaded/stored in-mem on that node (nginx routed reqs for a given auction to the right node based on a header) where bids, checkouts (a bid is a declaration to buy a product,
-                                    a checkout is an actual purchase), and other features were all settled in mem. This achieved microsecond latencies
-                                    and a single Docker instance was loaded tested at ~500 req/s (bids)
-                                </Typography>
-                                <img src={'rustload.png'} width={600} height={400}></img>
-                                <Typography variant={'caption'}>
-                                    However it became apparent that Rust would be prohibitive in other ways, particularly to the development pace we wanted to move at:
-                                </Typography>
-                                <br/>
-                                <Typography variant={'caption'}>
-                                    * packaging a binary was taking up to 3.5 minutes, and the strict (and time consuming) compile-build loop made local development slow
-                                </Typography>
-                                <br/>
-                                <Typography variant={'caption'}>
-                                    * it was going to be very difficult for other developers to ramp up quickly on Rust
-                                </Typography>
-                                <br/>
-                                <Typography variant={'caption'}>
-                                    * an unexpected bug with actix websockets caused the entire server to hang after 5 websocket connections
-                                </Typography>
-                                <br/>
-                                <Typography variant={'caption'}>
-                                    * Docker images were massive
-                                </Typography>
-                                <br/>
-                                <Typography variant={'caption'}>
-                                    * tooling is still immature. we had to patch numerous crates along the way and simple things like hooking up traces to Datadog took forever
-                                </Typography>
-                                <ImageList  sx={{width: icons.length * 22 , height: 30, paddingTop: 1}} cols={icons.length}>
-                                    {[<Deno/>, <Redis/>].map((x, i) =>
-                                        <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
-                                    )}
-                                </ImageList>
-                                <Typography variant={'caption'}>
-                                    so we ported it to Deno, a new Javascript runtime built on Rust by the creator of Node and achieved similar benchmarks but now the development loop was instantaneous
-                                    and tooling worked out of the box. We also moved from storing things in-mem and persisting to Postgres to just Redis to simplify things a bit. Below we see similar performance
-                                    on the load test
-                                </Typography>
-                                <img src={'denoload.png'} width={600} height={400}></img>
+                                <Typography variant={'caption'}>{caroExpanded ? "show less": "show more"}</Typography>
+                                <ExpandMore
+                                  expand={caroExpanded}
+                                  onClick={() => setCaroExpanded(!caroExpanded)}
+                                  aria-expanded={caroExpanded}
+                                  aria-label="show more"
+                                >
+                                <ExpandMoreIcon />
+
+                                </ExpandMore>
+                                <Collapse in={caroExpanded} timeout="auto" unmountOnExit>
+                                    <Typography variant={'caption'}>The service began as a Rust backend using actix. In order to achieve
+                                        the lowest latency possible an HFT-like architecture was used where each auction was assigned to a node
+                                        and loaded/stored in-mem on that node (auction id header based routing) where bids, checkouts (a bid is a declaration to buy a product,
+                                        a checkout is an actual purchase), and other features were all settled in mem. This achieved microsecond latencies
+                                        and a single Docker instance was loaded tested at ~500 req/s (bids)
+                                    </Typography>
+                                    <img src={'rustload.png'} width={600} height={400}></img>
+                                    <Typography variant={'caption'}>
+                                        However Rust proved to be prohibitive in more pragmatic ways:
+                                    </Typography>
+                                    <br/>
+                                    <Typography variant={'caption'}>
+                                        * complexity and upfront mental overhead is high. which makes development pace slow and these issues compound as you add more people
+                                    </Typography>
+                                    <br/>
+                                    <Typography variant={'caption'}>
+                                        * packaging a binary was taking up to 3.5 minutes, and the strict (and time consuming) compile-build loop made local development slow
+                                    </Typography>
+                                    <br/>
+                                    <Typography variant={'caption'}>
+                                        * an unexpected bug with actix websockets caused the entire server to hang after ~5 connections. after a day, we gave up trying to find the source
+                                        of the issue and simply replaced active with [axum](https://github.com/tokio-rs/axum) which resolved the issue
+                                    </Typography>
+                                    <br/>
+                                    <Typography variant={'caption'}>
+                                        * Docker images were massive
+                                    </Typography>
+                                    <br/>
+                                    <Typography variant={'caption'}>
+                                        * tooling is still generally immature though this is improving quickly. we had to patch numerous crates along the way and simple things like hooking up traces to Datadog took forever due to poor documentation/lack of examples on Github of people
+                                        that had already done it
+                                    </Typography>
+                                    <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
+                                        {[<Deno/>, <Redis/>].map((x, i) =>
+                                            <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
+                                        )}
+                                    </ImageList>
+                                    <Typography variant={'caption'}>
+                                        since this entire service effectively I/O bound we simply ported it to Deno, a new Javascript runtime built on Rust by the creator of Node and achieved similar benchmarks but now the development loop was instantaneous
+                                        and tooling worked out of the box. We also moved from storing things in-mem and persisting async to Postgres to using Redis and Lua scripts where atomicity was needed. Below we see similar performance
+                                        on the load test
+                                    </Typography>
+                                    <img src={'denoload.png'} width={600} height={400}></img>
+                                </Collapse>
                             </Item>
                         </Grid>
                         <Grid item xs={12} sm={12} md={2}>
@@ -204,7 +257,7 @@ export default function CustomizedTimeline() {
                                 platform for Solana. The core platform allows users to create organizations to collect funds for causes,
                                 vote on proposals, and other things
                             </Typography>
-                            <ImageList  sx={{width: icons.length * 22 , height: 30, paddingTop: 1}} cols={icons.length}>
+                            <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
                                 {[<Supabase/>, <Vercel/>, <Solana/>].map((x, i) =>
                                     <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
                                 )}
@@ -222,18 +275,48 @@ export default function CustomizedTimeline() {
                 >
                     May 2023
                 </TimelineOppositeContent>
-                <TimelineSeparator sx={{paddingRight: '40px'}}>
+                <TimelineSeparator >
                     <TimelineConnector  />
-                    <Otoy width={50} height={40}/>
+                    <Otoy width={30} height={30}/>
                     {/*<TimelineDot>
                 </TimelineDot>*/}
                     <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent sx={{ py: '12px', px: 2 }}>
-                    <Typography variant={"body2"}>
-                        helping <Link href={'https://rendertoken.com/'} about={'_blank'}>RNDR</Link> token migrate to Solana
-                        starting with implementing a BME (burn-and-mint) <Link href={'https://github.com/rndr-network/RNPs/blob/main/Approved%20and%20on%20the%20Roadmap/rnp-001-bme.md'}>proposal</Link>
-                    </Typography>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <Item>
+                                <Link href={'https://rendernetwork.com'} target={'_blank'} underline={'always'}><Typography variant="body1" component="span">rendernetwork.com</Typography></Link>
+                            </Item>
+                            <Item>
+                                <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
+                                    {renderIcons.map((x, i) =>
+                                      <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
+                                    )}
+                                </ImageList>
+                            </Item>
+                        </Grid>
+                        <br/>
+                        <Grid item xs={12} sm={10} md={2}>
+                        </Grid>
+                        <Grid item xs={12} sm={10} md={10}>
+                            <Item>
+                                <Typography marginBottom={0} paragraph variant={'body2'}>
+                                    my work at Render has involved migrating their entire network from Ethereum to Solana. the sum total of the work
+                                    is currently encapsulated in this <Link target={"_blank"} href={"https://github.com/rndr-network/render-program-library"}>monorepo</Link>
+                                </Typography>
+                                <ul>
+                                    <li>* implemented a BME (burn-and-mint equilibrium) <Link href={'https://github.com/rndr-network/RNPs/blob/main/Approved%20and%20on%20the%20Roadmap/rnp-001-bme.md'} target={"_blank"}>proposal</Link></li>
+                                    <li>* token bridge so that users can exchange their ETH RNDR for Solana RNDR </li>
+                                </ul>
+                                <ImageList  sx={{width: 6 * 25 , height: 30, paddingTop: 1}} cols={6}>
+                                    {[ <Vercel/>, <Solana/>, <Docker/>, <Kubernetes/>, <Grafana/>, <Prometheus/>].map((x, i) =>
+                                      <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
+                                    )}
+                                </ImageList>
+                            </Item>
+                        </Grid>
+                    </Grid>
                 </TimelineContent>
             </TimelineItem>
     </Timeline>);
