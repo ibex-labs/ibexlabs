@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Container, Grid, Link} from "@mui/material";
+import {Box, Container, Grid, Link, List, ListItem} from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -16,7 +16,7 @@ export const Services = () => {
                                     Frontend
                                 </Typography>
                                 <Typography variant={"body2"}>
-                                    experience building beautiful frontends like <Link href={"https://caro.bid"} target={"_blank"}>this</Link> and <Link href={"https://onvellum.com"} target={"_blank"}>this</Link> in React
+                                    experience building frontends like <Link href={"https://caro.bid"} target={"_blank"}>this</Link> and <Link href={"https://onvellum.com"} target={"_blank"}>this</Link> in React
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -28,10 +28,19 @@ export const Services = () => {
                                     Backend
                                 </Typography>
                                 <Typography variant={"body2"}>
-                                    experience building all sorts of distributed systems from realtime message based backends
-                                    on Node or Rust to high traffic Scala backends against MongoDB to high availability search and CRUD based
-                                    backends in Go against Elasticsearch and sharded MySQL with numerous dependencies and asynchronous
-                                    processing pipelines
+                                    experience building many different kinds of distributed systems. to name a few:
+                                    <List disablePadding={true} dense={true} sx={{ marginLeft: 2, listStyleType: 'disc', padding: 0 }}>
+                                        <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
+                                            realtime message based backends on Node (Deno) or Rust
+                                        </ListItem>
+                                        <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
+                                            high traffic Scala backends against MongoDB
+                                        </ListItem>
+                                        <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
+                                            high availability object graph service in Go backed by sharded MySQL
+                                            and Elasticsearch for search with numerous asynchronous processing pipelines
+                                        </ListItem>
+                                    </List>
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -43,8 +52,9 @@ export const Services = () => {
                                     Blockchain
                                 </Typography>
                                 <Typography variant={"body2"}>
-                                    experience building and most importantly scaling (blockchains are slow) services
-                                    committing data to blockchains mostly against Solana and Ethereum
+                                    experience building and scaling blockchain networks against Ethereum and Solana involving token bridges,
+                                    burn and mint equilibrium, entity management, etc. along with services otherwise persisting
+                                    data to them
                                 </Typography>
                             </CardContent>
                         </Card>
@@ -56,7 +66,7 @@ export const Services = () => {
                                     Machine Learning/AI
                                 </Typography>
                                 <Typography variant={"body2"}>
-                                    experience building custom ML pipelines and conversational models via either fine-tuning
+                                    experience building custom ML pipelines for finance and conversational models via either fine-tuning
                                     OpenAI's GPT models or training transformer based models from scratch
                                 </Typography>
                             </CardContent>

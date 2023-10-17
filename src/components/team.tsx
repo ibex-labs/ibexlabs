@@ -95,7 +95,7 @@ export default function TeamCards() {
                                         {member.job}
                                     </Typography>
                                     <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
-                                        <Stack direction="column" spacing={2}>
+                                        <Stack direction="column" >
                                             {/*<ImageList sx={{width: 100 , height: member.skills.length * 80, paddingTop: 1}} cols={1}>
                                                 {member.skills.map(([x, sc, str], i) =>
                                                     <ImageListItem key={i}>
@@ -114,7 +114,7 @@ export default function TeamCards() {
                                             <ImageList  sx={{width: 305, height: 200}} cols={3}>
                                                 {member.skills.map(([x, sc, str], i) =>
                                                     <ImageListItem key={i}>
-                                                        {React.cloneElement(x, {width: 90, height: 35})}
+                                                        {React.cloneElement(x, {width: 95, height: 35})}
                                                         <Typography variant={"caption"}>{str}</Typography>
                                                     </ImageListItem>
                                                 )}

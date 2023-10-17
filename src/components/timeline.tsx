@@ -14,6 +14,7 @@ import RepeatIcon from '@mui/icons-material/Repeat';
 import Typography from '@mui/material/Typography';
 import {ReactComponent as Nation} from "../nation-logo.svg";
 import {ReactComponent as Otoy} from "../assets/otoy.svg";
+//import {ReactComponent as Render} from "../assets/render.svg";
 import {
   Divider,
   Grid,
@@ -43,7 +44,9 @@ import {
     Solana,
     Supabase,
     TS,
-    Vercel
+    Vercel,
+  Render,
+  Render1
 } from "./logo";
 import {ReactComponent as Vellum} from "../assets/VellumLogo.svg";
 import {Image} from "mui-image";
@@ -149,10 +152,14 @@ export default function CustomizedTimeline() {
                         <Grid item xs={12} sm={10} md={10}>
                             <Item>
                                 <Typography marginBottom={0} paragraph variant={'body2'}> a Docusign-like platform for distributed (implemented against the Solana blockchain) signing of documents</Typography>
-                                <ul>
-                                    <li>* ability to draft documents with GPT-4 integration </li>
-                                    <li>* post-execution: run actions once the document has been signed like transfering funds from one account to another </li>
-                                </ul>
+                                <List dense={true} disablePadding={true} sx={{ marginLeft: 2, listStyleType: 'disc' }}>
+                                    <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
+                                        ability to draft documents with GPT-4 integration
+                                    </ListItem>
+                                    <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
+                                        post-execution: run actions once the document has been signed like transfering funds from one account to another
+                                    </ListItem>
+                                </List>
                                 <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
                                     {[
                                         <Supabase/>,
@@ -277,7 +284,7 @@ export default function CustomizedTimeline() {
                 </TimelineOppositeContent>
                 <TimelineSeparator >
                     <TimelineConnector  />
-                    <Otoy width={30} height={30}/>
+                    <Render width={30} height={30}/>
                     {/*<TimelineDot>
                 </TimelineDot>*/}
                     <TimelineConnector />
@@ -303,12 +310,16 @@ export default function CustomizedTimeline() {
                             <Item>
                                 <Typography marginBottom={0} paragraph variant={'body2'}>
                                     my work at Render has involved migrating their entire network from Ethereum to Solana. the sum total of the work
-                                    is currently encapsulated in this <Link target={"_blank"} href={"https://github.com/rndr-network/render-program-library"}>monorepo</Link>
+                                    is currently encapsulated in this <Link target={"_blank"} href={"https://github.com/rndr-network/render-program-library"}>monorepo</Link> (may not be public yet)
                                 </Typography>
-                                <ul>
-                                    <li>* implemented a BME (burn-and-mint equilibrium) <Link href={'https://github.com/rndr-network/RNPs/blob/main/Approved%20and%20on%20the%20Roadmap/rnp-001-bme.md'} target={"_blank"}>proposal</Link></li>
-                                    <li>* token bridge so that users can exchange their ETH RNDR for Solana RNDR </li>
-                                </ul>
+                                <List dense={true} disablePadding={true} sx={{ marginLeft: 2, listStyleType: 'disc' }}>
+                                    <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
+                                        implemented a BME (burn-and-mint equilibrium) <Link href={'https://github.com/rndr-network/RNPs/blob/main/Approved%20and%20on%20the%20Roadmap/rnp-001-bme.md'} target={"_blank"}>proposal</Link>
+                                    </ListItem>
+                                    <ListItem disablePadding={true} sx={{ display: 'list-item' }} >
+                                        token bridge so users can burn their ETH RNDR for Solana RENDER via <Link href={'https://wormhole.com/'} target={"_blank"}>wormhole</Link>
+                                    </ListItem>
+                                </List>
                                 <ImageList  sx={{width: 6 * 25 , height: 30, paddingTop: 1}} cols={6}>
                                     {[ <Vercel/>, <Solana/>, <Docker/>, <Kubernetes/>, <Grafana/>, <Prometheus/>].map((x, i) =>
                                       <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>

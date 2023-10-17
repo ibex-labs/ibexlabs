@@ -32,6 +32,8 @@ import {ReactComponent as KubernetesLogo} from "../assets/kubernetes.svg";
 import {ReactComponent as DockerLogo} from "../assets/docker.svg";
 import {ReactComponent as GrafanaLogo} from "../assets/grafana.svg";
 import {ReactComponent as PrometheusLogo} from "../assets/prometheus.svg";
+import {ReactComponent as RenderLogo} from "../assets/render.svg";
+import {ReactComponent as RenderLogo1} from "../assets/render1.svg";
 
 export const TS = (props: any) => <Tooltip title={'Typescript'} {...props}><TSLogo/></Tooltip>;
 export const TSFull = (props: any) => <Tooltip title={'Typescript'} {...props}><TSFullLogo/></Tooltip>;
@@ -59,3 +61,5 @@ export const Kubernetes = (props: any) => <Tooltip title={'Kubernetes'} {...prop
 export const Docker = (props: any) => <Tooltip title={'Docker'} {...props}><DockerLogo/></Tooltip>
 export const Grafana = (props: any) => <Tooltip title={'Grafana'} {...props}><GrafanaLogo/></Tooltip>
 export const Prometheus = (props: any) => <Tooltip title={'Prometheus'} {...props}><PrometheusLogo/></Tooltip>
+export const Render = (props: any) => <Tooltip title={'Render'} {...props}><RenderLogo/></Tooltip>
+export const Render1 = (props: any) => <Tooltip title={'Render'} {...props}><RenderLogo1/></Tooltip>
