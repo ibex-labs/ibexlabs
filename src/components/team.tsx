@@ -35,7 +35,7 @@ const members = [
         image: "alex.jpg",
         skills: [
             [<GoFull/>, .5, '3yrs'],
-            [<RustFull/>, .2, '3yrs'],
+            [<RustFull/>, .2, '4yrs'],
             [<TS/>, .5, '3yrs'],
             [<PythonFull/>, .25, '4yrs'],
             [<ScalaFull/>, .75, '3yrs'],
@@ -113,7 +113,7 @@ export default function TeamCards() {
                                             </ImageList>*/}
                                             <ImageList  sx={{width: 305, height: 200}} cols={3}>
                                                 {member.skills.map(([x, sc, str], i) =>
-                                                    <ImageListItem key={i}>
+                                                    <ImageListItem sx={{alignItems: 'center'}} key={i}>
                                                         {React.cloneElement(x, {width: 95, height: 35})}
                                                         <Typography variant={"caption"}>{str}</Typography>
                                                     </ImageListItem>

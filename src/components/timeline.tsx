@@ -12,7 +12,7 @@ import LaptopMacIcon from '@mui/icons-material/LaptopMac';
 import HotelIcon from '@mui/icons-material/Hotel';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import Typography from '@mui/material/Typography';
-import {ReactComponent as Nation} from "../nation-logo.svg";
+import {ReactComponent as Nation} from "assets/nation-white.svg";
 import {ReactComponent as Otoy} from "../assets/otoy.svg";
 //import {ReactComponent as Render} from "../assets/render.svg";
 import {
@@ -45,10 +45,11 @@ import {
     Supabase,
     TS,
     Vercel,
-  Render,
-  Render1
+    Render,
+    Render1,
+    Rust1
 } from "./logo";
-import {ReactComponent as Vellum} from "../assets/VellumLogo.svg";
+import {ReactComponent as Vellum} from "../assets/VellumLogoWhite.svg";
 import {Image} from "mui-image";
 import {useState} from "react";
 import IconButton from "@mui/material/IconButton";
@@ -56,7 +57,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const nationIcons = [
     <TS/>,
-    <Rust/>,
+    <Rust1/>,
     <Postgres/>
 ];
 const renderIcons = [
@@ -111,7 +112,7 @@ export default function CustomizedTimeline() {
         }}>
             <TimelineItem>
                 <TimelineOppositeContent
-                            sx={{ m: 'auto 0' }}
+                            sx={{ width: 20, m: 'auto 0' }}
                 align="right"
                 variant="body2"
                 color="text.secondary"
@@ -128,36 +129,42 @@ export default function CustomizedTimeline() {
                 <TimelineContent sx={{ py: '12px', px: 2 }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
-                            <Item>
+                            <div>
                                 <Link href={'https://nation.io'} target={'_blank'} underline={'always'}><Typography variant="body1" component="span">nation.io</Typography></Link>
-                            </Item>
-                            <Item>
+                            </div>
+                            <div>
                                 <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
                                 {nationIcons.map((x, i) =>
                                     <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
                                 )}
                                 </ImageList>
-                            </Item>
+                            </div>
                         </Grid>
                         <br/>
                         <Grid item xs={12} sm={10} md={2}>
-                            <Item>
+                            <div>
                                 <Link sx={{margin: '0 auto'}} href={"https://onvellum.com"} target={'_blank'}>
                                     <Vellum width={60} height={40}/>
                                     {/*<Image src={"assets/VellumLogo.svg"} width={60} height={40}/>*/}
                                 </Link>
-                                <KeyboardArrowUp/> click icons for more details
-                            </Item>
+                                <KeyboardArrowUp/><Typography variant={"body2"}>
+                                click icons for more details
+                            </Typography>
+                            </div>
                         </Grid>
                         <Grid item xs={12} sm={10} md={10}>
-                            <Item>
+                            <div>
                                 <Typography marginBottom={0} paragraph variant={'body2'}> a Docusign-like platform for distributed (implemented against the Solana blockchain) signing of documents</Typography>
                                 <List dense={true} disablePadding={true} sx={{ marginLeft: 2, listStyleType: 'disc' }}>
                                     <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
-                                        ability to draft documents with GPT-4 integration
+                                        <Typography variant={'body2'}>
+                                            ability to draft documents with GPT-4 integration
+                                        </Typography>
                                     </ListItem>
                                     <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
-                                        post-execution: run actions once the document has been signed like transfering funds from one account to another
+                                        <Typography variant={'body2'}>
+                                            post-execution: run actions once the document has been signed like transfering funds from one account to another
+                                        </Typography>
                                     </ListItem>
                                 </List>
                                 <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
@@ -170,7 +177,7 @@ export default function CustomizedTimeline() {
                                     )}
                                 </ImageList>
                                 <Typography variant={'caption'}>Next.js service on Vercel with Supabase (postgres, realtime sockets, blob storage) backend and Solana contracts in Rust for writing documents to the blockchain and running post-execution</Typography>
-                            </Item>
+                            </div>
                         </Grid>
                         {/*sx={{ display: 'flex', textAlign: "center" }}*/}
                         <Grid item xs={12} sm={12} md={2}>
@@ -181,8 +188,8 @@ export default function CustomizedTimeline() {
                             </Link>
                             {/*<Typography sx={{verticalAlign:'center', marginTop: '5px' , marginLeft: '2px', color: '#75db00', fontWeight: 'bold'}}>Caro</Typography>*/}
                         </Grid>
-                        <Grid item xs={12} sm={12} md={9}>
-                            <Item>
+                        <Grid item xs={12} sm={10} md={10}>
+                            <div>
                                 <Typography variant={'body2'}>An auction engine implementing several real-time auction formats served as a Shopify widget that can be embedded in anyone's storefront. The following is a brief presentation given by Nation's CEO Ryan Shea about Caro</Typography>
                                 <video width="400" height="310" controls>
                                     <source src="https://github.com/amilkov3/ibexlabs/raw/0267d34391f5233ef432f9b1bf94adbada844e07/public/caro-presentation.mp4" type="video/mp4"/>
@@ -247,16 +254,16 @@ export default function CustomizedTimeline() {
                                     </Typography>
                                     <img src={'denoload.png'} width={600} height={400}></img>
                                 </Collapse>
-                            </Item>
+                            </div>
                         </Grid>
                         <Grid item xs={12} sm={12} md={2}>
                             {/*<pre><code children={'auction-engine'}></code></pre>*/}
-                            <Item>
+                            <div>
                                 <Link sx={{margin: '0 auto'}} href={"https://nation.io"} target={"_blank"}>
                                     <Nation width={40} height={40}/>
                                 </Link>
                                 (core)
-                            </Item>
+                            </div>
                         </Grid>
                         <Grid item xs={12} sm={12} md={9}>
                             <Typography variant={'body2'}>
@@ -277,13 +284,13 @@ export default function CustomizedTimeline() {
                 <TimelineOppositeContent
                     sx={{ m: 'auto 0' }}
                     align="right"
-                    variant="body2"
+                    variant="body"
                     color="text.secondary"
                 >
                     May 2023
                 </TimelineOppositeContent>
                 <TimelineSeparator >
-                    <TimelineConnector  />
+                    <TimelineConnector />
                     <Render width={30} height={30}/>
                     {/*<TimelineDot>
                 </TimelineDot>*/}
@@ -292,40 +299,56 @@ export default function CustomizedTimeline() {
                 <TimelineContent sx={{ py: '12px', px: 2 }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
-                            <Item>
+                            <div>
                                 <Link href={'https://rendernetwork.com'} target={'_blank'} underline={'always'}><Typography variant="body1" component="span">rendernetwork.com</Typography></Link>
-                            </Item>
-                            <Item>
-                                <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
+                            </div>
+                            <div>
+                                <ImageList  sx={{width: renderIcons.length * 22 , height: 30, paddingTop: 1}} cols={renderIcons.length}>
                                     {renderIcons.map((x, i) =>
                                       <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
                                     )}
                                 </ImageList>
-                            </Item>
+                            </div>
+                        </Grid>
+                        <Grid item xs={12} sm={10} md={2}>
+                            <Link target={'_blank'} href={"https://renderfoundation.com/"}><Typography variant={"body2"} sx={{fontFamily: 'Inter, Inter Placeholder, sans-serif'}}>renderfoundation.com</Typography></Link>
                         </Grid>
                         <br/>
-                        <Grid item xs={12} sm={10} md={2}>
-                        </Grid>
-                        <Grid item xs={12} sm={10} md={10}>
-                            <Item>
-                                <Typography marginBottom={0} paragraph variant={'body2'}>
+                        <Grid item xs={10} sm={10} md={9}>
+                            <div>
+                                <Typography marginBottom={0} variant={'body2'}>
                                     my work at Render has involved migrating their entire network from Ethereum to Solana. the sum total of the work
                                     is currently encapsulated in this <Link target={"_blank"} href={"https://github.com/rndr-network/render-program-library"}>monorepo</Link> (may not be public yet)
                                 </Typography>
                                 <List dense={true} disablePadding={true} sx={{ marginLeft: 2, listStyleType: 'disc' }}>
                                     <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
-                                        implemented a BME (burn-and-mint equilibrium) <Link href={'https://github.com/rndr-network/RNPs/blob/main/Approved%20and%20on%20the%20Roadmap/rnp-001-bme.md'} target={"_blank"}>proposal</Link>
+                                        <Typography variant={'body2'}>
+                                            implemented a BME (burn-and-mint equilibrium) <Link href={'https://github.com/rndr-network/RNPs/blob/main/Approved%20and%20on%20the%20Roadmap/rnp-001-bme.md'} target={"_blank"}>proposal</Link>
+                                        </Typography>
                                     </ListItem>
                                     <ListItem disablePadding={true} sx={{ display: 'list-item' }} >
-                                        token bridge so users can burn their ETH RNDR for Solana RENDER via <Link href={'https://wormhole.com/'} target={"_blank"}>wormhole</Link>
+                                        <Typography variant={'body2'}>
+                                            token bridge so users can burn their ETH RNDR for Solana RENDER via <Link href={'https://wormhole.com/'} target={"_blank"}>wormhole</Link>
+                                        </Typography>
                                     </ListItem>
                                 </List>
-                                <ImageList  sx={{width: 6 * 25 , height: 30, paddingTop: 1}} cols={6}>
-                                    {[ <Vercel/>, <Solana/>, <Docker/>, <Kubernetes/>, <Grafana/>, <Prometheus/>].map((x, i) =>
+                                <ImageList  sx={{width: 8 * 25 , height: 30, paddingTop: 1}} cols={8}>
+                                    {[ <Vercel/>, <Solana/>, <Docker/>, <Kubernetes/>, <Grafana/>, <Prometheus/>, <Redis/>, <Postgres/>].map((x, i) =>
                                       <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
                                     )}
                                 </ImageList>
-                            </Item>
+                                <Typography variant={'caption'}>
+                                    several Solana contracts in Rust for controlling emissions based on a schedule, burn-and-mint equilibrium, bridging tokens from Ethereum to Solana, tokenizing entities (GPU nodes that run rendering jobs), etc
+                                    <br/>
+                                    Typescript servers and (cranker) jobs for serving data and orchestrating operations against Solana
+                                    <br/>
+                                    Redis to facilitate the token bridge relayer and ETH fee reinbursement
+                                    <br/>
+                                    Postgres backing a dashboard matching users with node operators
+                                    <br/>
+                                    all running in a large Kubernetes cluster with Grafana/Prometheus/Alertmanager/Loki/Tempo monitoring stack, Vault and <Link href={'https://bank-vaults.dev/'} target={'_blank'}>bank-vaults.dev</Link> for secret management and injection, Nginx ingress
+                                </Typography>
+                            </div>
                         </Grid>
                     </Grid>
                 </TimelineContent>

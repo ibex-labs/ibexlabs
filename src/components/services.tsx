@@ -31,7 +31,10 @@ export const Services = () => {
                                     experience building many different kinds of distributed systems. to name a few:
                                     <List disablePadding={true} dense={true} sx={{ marginLeft: 2, listStyleType: 'disc', padding: 0 }}>
                                         <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
-                                            realtime message based backends on Node (Deno) or Rust
+                                            realtime message based backends on Node (Deno)
+                                        </ListItem>
+                                        <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
+                                            HFT-like order books and infrastructure tools like jobs, queues, GRPC macro frameworks in Rust
                                         </ListItem>
                                         <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
                                             high traffic Scala backends against MongoDB
