@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.bb617b4b.css",
-    "main.js": "/static/js/main.4a22c803.js",
+    "main.css": "/static/css/main.e3bf695a.css",
+    "main.js": "/static/js/main.110e1d43.js",
     "static/js/787.37eac4dc.chunk.js": "/static/js/787.37eac4dc.chunk.js",
     "static/media/roboto-all-500-normal.woff": "/static/media/roboto-all-500-normal.0ab669b7a0d19b178f57.woff",
     "static/media/roboto-all-700-normal.woff": "/static/media/roboto-all-700-normal.a457fde362a540fcadff.woff",
@@ -35,6 +35,7 @@
     "static/media/roboto-vietnamese-400-normal.woff2": "/static/media/roboto-vietnamese-400-normal.3230f9b040f3c630e0c3.woff2",
     "static/media/roboto-vietnamese-700-normal.woff2": "/static/media/roboto-vietnamese-700-normal.3425a701027d0699e369.woff2",
     "static/media/roboto-vietnamese-300-normal.woff2": "/static/media/roboto-vietnamese-300-normal.32fc45a3d1e8ea11fabc.woff2",
+    "static/media/render-foundation.svg": "/static/media/render-foundation.ec526ec7c41a107425215c4c2c70b8a7.svg",
     "static/media/rust-white.svg": "/static/media/rust-white.5b181c4eb567e7d44052fdc7bdfb6958.svg",
     "static/media/rust.svg": "/static/media/rust.5b181c4eb567e7d44052fdc7bdfb6958.svg",
     "static/media/rust-full.svg": "/static/media/rust-full.cc29dcf3e8e2a26623cace577839e265.svg",
@@ -65,12 +66,12 @@
     "index.html": "/index.html",
     "static/media/haskell.svg": "/static/media/haskell.b93ff47fef2bc74e1abce46373d1af6a.svg",
     "static/media/vercel-white.svg": "/static/media/vercel-white.577a06ff0d42d13dca56707fc8a4bc6c.svg",
-    "main.bb617b4b.css.map": "/static/css/main.bb617b4b.css.map",
-    "main.4a22c803.js.map": "/static/js/main.4a22c803.js.map",
+    "main.e3bf695a.css.map": "/static/css/main.e3bf695a.css.map",
+    "main.110e1d43.js.map": "/static/js/main.110e1d43.js.map",
     "787.37eac4dc.chunk.js.map": "/static/js/787.37eac4dc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bb617b4b.css",
-    "static/js/main.4a22c803.js"
+    "static/css/main.e3bf695a.css",
+    "static/js/main.110e1d43.js"
   ]
 }
