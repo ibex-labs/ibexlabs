@@ -13,6 +13,7 @@ import HotelIcon from '@mui/icons-material/Hotel';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import Typography from '@mui/material/Typography';
 import {ReactComponent as Nation} from "assets/nation-white.svg";
+import {ReactComponent as RenderFoundation1} from "assets/render-foundation.svg";
 import {ReactComponent as Otoy} from "../assets/otoy.svg";
 //import {ReactComponent as Render} from "../assets/render.svg";
 import {
@@ -47,7 +48,7 @@ import {
     Vercel,
     Render,
     Render1,
-    Rust1
+    Rust1, RenderFoundation
 } from "./logo";
 import {ReactComponent as Vellum} from "../assets/VellumLogoWhite.svg";
 import {Image} from "mui-image";
@@ -311,7 +312,9 @@ export default function CustomizedTimeline() {
                             </div>
                         </Grid>
                         <Grid item xs={12} sm={10} md={2}>
-                            <Link target={'_blank'} href={"https://renderfoundation.com/"}><Typography variant={"body2"} sx={{fontFamily: 'Inter, Inter Placeholder, sans-serif'}}>renderfoundation.com</Typography></Link>
+                            <Link sx={{margin: '0 auto'}} target={'_blank'} href={"https://renderfoundation.com/"}>
+                                <RenderFoundation1 height={50} width={120} />
+                            </Link>
                         </Grid>
                         <br/>
                         <Grid item xs={10} sm={10} md={9}>

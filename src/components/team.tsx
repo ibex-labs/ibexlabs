@@ -53,7 +53,7 @@ const members = [
         ],
         socials: [
             { name: "Facebook", icon: <Link href={'https://t.me/amilkov3'} target={'_blank'} ><Telegram /></Link>  },
-            { name: "Mail", icon: <Link href={'mailto:alex@ibext.trade'} target={'_blank'}><Mail/></Link> },
+            { name: "Mail", icon: <Link href={'mailto:alex@ibex.trade'} target={'_blank'}><Mail/></Link> },
             { name: "Resume", icon: <Link href={'https://milkov.tech/resume/resume.pdf'} target={'_blank'}><Typography variant={'caption'}>Resume</Typography></Link>}
         ]
     },

@@ -35,6 +35,7 @@ import {ReactComponent as PrometheusLogo} from "../assets/prometheus.svg";
 import {ReactComponent as RenderLogo} from "../assets/render.svg";
 import {ReactComponent as RenderLogo1} from "../assets/render1.svg";
 import {ReactComponent as RustWhiteLogo} from "../assets/rust-white.svg";
+import {ReactComponent as RenderFoundationLogo} from "../assets/render-foundation.svg";
 import {Image} from "mui-image";
 
 export const TS = (props: any) => <Tooltip title={'Typescript'} {...props}><TSLogo/></Tooltip>;
@@ -67,3 +68,4 @@ export const Render = (props: any) => <Tooltip title={'Render'} {...props}><Rend
 export const Render1 = (props: any) => <Tooltip title={'Render'} {...props}><RenderLogo1/></Tooltip>
 
 export const Rust1 = (props: any) => <Tooltip title={'Rust'} {...props}><RustWhiteLogo/></Tooltip>
+export const RenderFoundation = (props: any) => <Tooltip title={'Render Foundation'} {...props}><RenderFoundationLogo/></Tooltip>
