@@ -17,18 +17,18 @@ import {ReactComponent as RenderFoundation1} from "assets/render-foundation.svg"
 import {ReactComponent as Otoy} from "../assets/otoy.svg";
 //import {ReactComponent as Render} from "../assets/render.svg";
 import {
-  Divider,
-  Grid,
-  ImageList,
-  ImageListItem,
-  Link,
-  List,
-  ListItem,
-  Paper, Stack,
-  styled,
-  SvgIcon,
-  Tooltip,
-  Box, ListItemText, Collapse, IconButtonProps
+    Divider,
+    Grid,
+    ImageList,
+    ImageListItem,
+    Link,
+    List,
+    ListItem,
+    Paper, Stack,
+    styled,
+    SvgIcon,
+    Tooltip,
+    Box, ListItemText, Collapse, IconButtonProps, CardMedia
 } from "@mui/material";
 import {timelineOppositeContentClasses} from "@mui/lab";
 import CodeBlock from "./codeblock";
@@ -55,6 +55,8 @@ import {Image} from "mui-image";
 import {useState} from "react";
 import IconButton from "@mui/material/IconButton";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 
 const nationIcons = [
     <TS/>,
@@ -284,8 +286,9 @@ export default function CustomizedTimeline() {
             <TimelineItem>
                 <TimelineOppositeContent
                     sx={{ m: 'auto 0' }}
+                    px={{xs: '16px', sm: 2, md: 2}}
                     align="right"
-                    variant="body"
+                    variant="body2"
                     color="text.secondary"
                 >
                     May 2023
@@ -335,6 +338,19 @@ export default function CustomizedTimeline() {
                                         </Typography>
                                     </ListItem>
                                 </List>
+                                <Card
+                                  sx={{ width: 300}}
+                                  title={"Help"}>
+                                    <CardContent>
+                                        <Typography variant={"body2"}>
+                                            <Link href={'https://u.today/crypto-ai-token-render-rndr-migrates-to-solana-blockchain'} target={"_blank"}>Crypto AI Token Render (RNDR) Migrates to Solana Blockchain</Link>
+                                        </Typography>
+                                        <CardMedia
+                                          image={'https://u.today/sites/default/files/styles/736x/public/2023-11/41703.jpg'}
+                                          sx={{height: 100}}
+                                        />
+                                    </CardContent>
+                                </Card>
                                 <ImageList  sx={{width: 8 * 25 , height: 30, paddingTop: 1}} cols={8}>
                                     {[ <Vercel/>, <Solana/>, <Docker/>, <Kubernetes/>, <Grafana/>, <Prometheus/>, <Redis/>, <Postgres/>].map((x, i) =>
                                       <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
