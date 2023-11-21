@@ -115,7 +115,7 @@ export default function CustomizedTimeline() {
         }}>
             <TimelineItem>
                 <TimelineOppositeContent
-                            sx={{ width: 20, m: 'auto 0' }}
+                            sx={{ m: 'auto 0' }}
                 align="right"
                 variant="body2"
                 color="text.secondary"
@@ -286,7 +286,7 @@ export default function CustomizedTimeline() {
             <TimelineItem>
                 <TimelineOppositeContent
                     sx={{ m: 'auto 0' }}
-                    px={{xs: '16px', sm: 2, md: 2}}
+                    //px={{xs: '24px'}}
                     align="right"
                     variant="body2"
                     color="text.secondary"

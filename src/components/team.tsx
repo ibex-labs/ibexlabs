@@ -32,7 +32,7 @@ const members = [
         name: "Alex Milkov",
         bg: "Алекcандър Милков",
         job: "Founder",
-        image: "alex.jpg",
+        image: "alex1.jpg",
         skills: [
             [<GoFull/>, .5, '3yrs'],
             [<RustFull/>, .2, '4yrs'],
@@ -88,9 +88,9 @@ export default function TeamCards() {
                                     <Typography variant="h6" component="div">
                                         {member.name}
                                     </Typography>
-                                    <Typography variant="caption" component="div">
+                                    {/* <Typography variant="caption" component="div">
                                         {member.bg}
-                                    </Typography>
+                                    </Typography> */}
                                     <Typography color="text.secondary" variant="body2">
                                         {member.job}
                                     </Typography>
