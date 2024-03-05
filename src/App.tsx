@@ -1,7 +1,6 @@
 import './App.css';
 
 // When using TypeScript 4.x and above
-import CustomizedTimeline from "./components/timeline";
 import * as Scroll from "react-scroll";
 import {Link, Element} from "react-scroll";
 import {
@@ -10,7 +9,7 @@ import {
   Box, Button,
   Container,
   createTheme,
-  CssBaseline, Divider,
+  CssBaseline, Divider, Grid,
   IconButton, Menu, MenuItem, MenuProps,
   Paper,
   Stack,
@@ -23,8 +22,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import * as m from "@mui/icons-material";
-import TeamCards from "./components/team";
-import {Services} from "./components/services";
+import TeamCards from "./components/Team";
 import {useEffect, useRef, useState} from "react";
 import zIndex from "@mui/material/styles/zIndex";
 import { useCallback } from "react";
@@ -35,6 +33,11 @@ import emailjs from "@emailjs/browser";
 import Email from '@mui/icons-material/Email';
 import EditIcon from '@mui/icons-material/Edit';
 import {blue, grey} from "@mui/material/colors";
+import Timeline from "./components/Timeline";
+import getLPTheme from "./theme";
+import Services from "./components/Services";
+import * as React from "react";
+import {timelineOppositeContentClasses} from "@mui/lab";
 
 // When using TypeScript 3.x and below
 //import '@mui/lab/themeAugmentation';
@@ -62,6 +65,66 @@ const Item = styled(Paper)(({ theme }) => ({
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
+  },
+  typography: {
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+    //fontFamily: ['"Inter", "sans-serif"'].join(','),
+    /*h1: {
+      fontSize: 60,
+      fontWeight: 600,
+      lineHeight: 78 / 70,
+      letterSpacing: -0.2,
+    },
+    h2: {
+      fontSize: 48,
+      fontWeight: 600,
+      lineHeight: 1.2,
+    },
+    h3: {
+      fontSize: 42,
+      lineHeight: 1.2,
+    },
+    h4: {
+      fontSize: 36,
+      fontWeight: 500,
+      lineHeight: 1.5,
+    },
+    h5: {
+      fontSize: 20,
+      fontWeight: 600,
+    },
+    h6: {
+      fontSize: 18,
+    },
+    subtitle1: {
+      fontSize: 18,
+    },
+    subtitle2: {
+      fontSize: 16,
+    },
+    body1: {
+      fontWeight: 400,
+      fontSize: 15,
+    },
+    body2: {
+      fontWeight: 400,
+      fontSize: 14,
+    },
+    caption: {
+      fontWeight: 400,
+      fontSize: 12,
+    },*/
   },
 });
 
@@ -188,6 +251,58 @@ function App() {
     setAnchorEl(null);
   };
 
+  const StyledBox = styled(Box)`
+      &.typewriter-effect {
+          display: flex;
+          justify-content: center;
+          font-family: monospace;
+      }
+
+      &.typewriter-effect > .text {
+          animation: typing 3s steps(var(--characters));
+          white-space: nowrap;
+          overflow: hidden;
+      }
+
+      &.typewriter-effect:after {
+          content: " |";
+          animation: blink 3s step-end;
+          //animation-timing-function: step-end;
+      }
+
+      @keyframes typing {
+          0% { max-width: 0 }
+          25%,
+          75%,
+          100% {
+              max-width: calc(var(--characters) * 1ch);
+          }
+      }
+
+      @keyframes blink {
+          0%,
+          75%,
+          100% {
+              opacity: 1;
+          }
+          25% {
+              opacity: 0;
+          }
+      }
+  `;
+
+  const text = 'Blockchain consulting'
+
+  interface CustomStyles extends React.CSSProperties {
+    "--characters": number | string;
+  }
+
+  const customStyle: CustomStyles = {
+    //whiteSpace: 'pre-wrap',
+    //wordWrap: 'break-word',
+    "--characters": text.length
+  }
+
   return (
     <>
       <Particles
@@ -265,7 +380,7 @@ function App() {
         }}
       />
       {/*<Pn divStyle={{position: "fixed"}} />*/}
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={createTheme(getLPTheme('dark'))}>
         <CssBaseline/>
         <main>
           <Box sx={{ flexGrow: 1, zIndex: 1 }}>
@@ -338,32 +453,34 @@ function App() {
 
             </AppBar>
           </Box>
-      <Container style={{marginTop: 70, zIndex: -1}}>
-        <Stack paddingTop={1} spacing={2}>
-          <div>
-            <Element name={'timeline'}>
-              <Typography variant={'body1'} align={'left'}>Timeline</Typography>
-              <CustomizedTimeline/>
-            </Element>
-          </div>
-          <div>
-            <Typography variant={'body1'} align={'left'}>Services</Typography>
-            <Services/>
-          </div>
-          <div>
-            <Element name={'about'}>
-              <Typography variant={'body1'} align={'left'}>About</Typography>
-              <br/>
-              <Typography align={'center'} variant={'body2'}> Ibex Labs, Ltd seeks to connect bright, young software engineers to tech companies across the world </Typography>
-            </Element>
-          </div>
-          <div>
-            <Typography variant={'body1'} align={'left'}>Team</Typography>
-            <TeamCards/>
-          </div>
-        </Stack>
-      </Container>
-    </main>
+          <Container style={{marginTop: 70, zIndex: 1000}}>
+            <Container id="title" sx={{pt: {xs: 8, sm: 16}}}>
+              <div>
+                <Typography component="h2" variant="h4" color="text.primary">
+                  <StyledBox className="typewriter-effect">
+                    <Box style={customStyle} className="text" id="typewriter-text">
+                      {text}
+                    </Box>
+                  </StyledBox>
+                </Typography>
+              </div>
+            </Container>
+            <Timeline/>
+            <Stack paddingTop={1} spacing={2}>
+              <div>
+                <Element name={'services'}>
+                  <Services/>
+                </Element>
+                <Element name={'timeline'}>
+                  <Typography component="h2" variant="h4" color="text.primary">
+                    Team
+                  </Typography>
+                  <TeamCards/>
+                </Element>
+              </div>
+            </Stack>
+          </Container>
+        </main>
       </ThemeProvider>
     </>
   );
