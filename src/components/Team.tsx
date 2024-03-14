@@ -100,7 +100,7 @@ const members = [
       {
         name: "Telegram",
         icon: (
-          <Link href={"https://t.me/amilkov3"} target={"_blank"}>
+          <Link href={"https://t.me/hristod"} target={"_blank"}>
             <Telegram />
           </Link>
         ),
