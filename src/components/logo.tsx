@@ -17,6 +17,7 @@ import { ReactComponent as TSFullLogo } from "../assets/typescript-full.svg";
 import { ReactComponent as ReactFullLogo } from "../assets/reactjs-ar21.svg";
 import { ReactComponent as NodeFullLogo } from "../assets/nodejs-horizontal.svg";
 import { ReactComponent as RustFullLogo } from "../assets/rust-full.svg";
+import { ReactComponent as MannaLogo } from "../assets/manna.svg";
 //import {ReactComponent as PGFullLogo} from "../assets/postgresql-full.svg";
 import { ReactComponent as SBFull } from "../assets/supabase-full.svg";
 //import {ReactComponent as VercelLogo} from "../assets/vercel.svg";
@@ -195,5 +196,10 @@ export const Rust1 = (props: any) => (
 export const RenderFoundation = (props: any) => (
   <Tooltip title={"Render Foundation"} {...props}>
     <RenderFoundationLogo />
+  </Tooltip>
+);
+export const Manna = (props: any) => (
+  <Tooltip title={"Render Foundation"} {...props}>
+    <MannaLogo />
   </Tooltip>
 );

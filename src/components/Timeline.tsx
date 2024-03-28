@@ -69,150 +69,7 @@ const renderIcons = [
 ];
 
 const items = [
-  {
-    icon1:  <Nation width={30} height={30}/>,
-    icon2: <Box sx={{width: 100, m: 'auto', p: 0, display: 'block'}}>
-      <Nation width={30} height={30}/>
-    </Box>,
-    title: 'Nation',
-    description:
-      <>
-        <Typography color="text.secondary" variant="body1" sx={{my: 0.5}}>
-          The DAO (Distributed Autonomous Organization) platform for Solana
-        </Typography>
-        <div>
-          <ImageList sx={{width: nationIcons.length * 25, height: 30, paddingTop: 1}} cols={nationIcons.length}>
-            {nationIcons.map((x, i) =>
-              <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
-            )}
-          </ImageList>
-        </div>
-      </>,
-    date: 'Oct 2022',
-    addtlContent: <>
-      <Grid item xs={12} sm={10} md={2}>
-        <div>
-          <Link sx={{margin: '0 auto'}} href={"https://onvellum.com"} target={'_blank'}>
-            <Vellum width={60} height={40}/>
-            {/*<Image src={"assets/VellumLogo.svg"} width={60} height={40}/>*/}
-          </Link>
-        </div>
-      </Grid>
-      <Grid item xs={12} sm={10} md={10}>
-                            <div>
-                                <Typography marginBottom={0} paragraph variant={'body2'}> a Docusign-like platform for distributed (implemented against the Solana blockchain) signing of documents</Typography>
-                                <List dense={true} disablePadding={true} sx={{ marginLeft: 2, listStyleType: 'disc' }}>
-                                    <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
-                                        <Typography variant={'body2'}>
-                                            ability to draft documents with GPT-4 integration
-                                        </Typography>
-                                    </ListItem>
-                                    <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
-                                        <Typography variant={'body2'}>
-                                            post-execution: run actions once the document has been signed like transfering funds from one account to another
-                                        </Typography>
-                                    </ListItem>
-                                </List>
-                                <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
-                                    {[
-                                        <Supabase/>,
-                                        <Vercel/>,
-                                        <Solana/>
-                                    ].map((x, i) =>
-                                        <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
-                                    )}
-                                </ImageList>
-                                <Typography variant={'caption'}>Next.js service on Vercel with Supabase (postgres, realtime sockets, blob storage) backend and Solana contracts in Rust for writing documents to the blockchain and running post-execution</Typography>
-                            </div>
-                        </Grid>
-                        {/*sx={{ display: 'flex', textAlign: "center" }}*/}
-                        <Grid item xs={12} sm={12} md={2}>
-                            {/*sx={{alignItems:'center', margin: '0 0', padding: 0, color: 'inherit', textDecoration: 'inherit'}}*/}
-                            <Link href={"https://caro.bid"} target={"_blank"}>
-                                {/*<Image src={"apple-touch-icon.png"} width={40} height={40}></Image>*/}
-                                <Image src={'caro-black.png'} width={65} height={45}/>
-                            </Link>
-                            {/*<Typography sx={{verticalAlign:'center', marginTop: '5px' , marginLeft: '2px', color: '#75db00', fontWeight: 'bold'}}>Caro</Typography>*/}
-                        </Grid>
-                        <Grid item xs={12} sm={10} md={10}>
-                            <div>
-                                <Typography variant={'body2'}>An auction engine implementing several real-time auction formats served as a Shopify widget that can be embedded in anyone's storefront. The following is a brief presentation given by Nation's CEO Ryan Shea about Caro</Typography>
-                                <video width="400" height="310" controls>
-                                    <source src="https://github.com/amilkov3/ibexlabs/raw/0267d34391f5233ef432f9b1bf94adbada844e07/public/caro-presentation.mp4" type="video/mp4"/>
-                                </video>
-                                <ImageList  sx={{width: 4 * 25 , height: 30, paddingTop: 1}} cols={4}>
-                                    {[<Rust/>, <Postgres/>, <Deno/>, <Redis/>].map((x, i) =>
-                                        <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
-                                    )}
-                                </ImageList>
-                                  <Typography variant={'caption'}>The service began as a Rust backend using actix. In order to achieve
-                                      the lowest latency possible an HFT-like architecture was used where each auction was assigned to a node
-                                      and loaded/stored in-mem on that node (auction id header based routing) where bids, checkouts (a bid is a declaration to buy a product,
-                                      a checkout is an actual purchase), and other features were all settled in mem. This achieved microsecond latencies
-                                      and a single Docker instance was loaded tested at ~500 req/s (bids)
-                                  </Typography>
-                                  <img src={'rustload.png'} width={600} height={400}></img>
-                                  <Typography variant={'caption'}>
-                                      However Rust proved to be prohibitive in more pragmatic ways:
-                                  </Typography>
-                                  <br/>
-                                  <Typography variant={'caption'}>
-                                      * complexity and upfront mental overhead is high. which makes development pace slow and these issues compound as you add more people
-                                  </Typography>
-                                  <br/>
-                                  <Typography variant={'caption'}>
-                                      * packaging a binary was taking up to 3.5 minutes, and the strict (and time consuming) compile-build loop made local development slow
-                                  </Typography>
-                                  <br/>
-                                  <Typography variant={'caption'}>
-                                      * an unexpected bug with actix websockets caused the entire server to hang after ~5 connections. after a day, we gave up trying to find the source
-                                      of the issue and simply replaced active with [axum](https://github.com/tokio-rs/axum) which resolved the issue
-                                  </Typography>
-                                  <br/>
-                                  <Typography variant={'caption'}>
-                                      * Docker images were massive
-                                  </Typography>
-                                  <br/>
-                                  <Typography variant={'caption'}>
-                                      * tooling is still generally immature though this is improving quickly. we had to patch numerous crates along the way and simple things like hooking up traces to Datadog took forever due to poor documentation/lack of examples on Github of people
-                                      that had already done it
-                                  </Typography>
-                                  <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
-                                      {[<Deno/>, <Redis/>].map((x, i) =>
-                                          <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
-                                      )}
-                                  </ImageList>
-                                  <Typography variant={'caption'}>
-                                      since this entire service effectively I/O bound we simply ported it to Deno, a new Javascript runtime built on Rust by the creator of Node and achieved similar benchmarks but now the development loop was instantaneous
-                                      and tooling worked out of the box. We also moved from storing things in-mem and persisting async to Postgres to using Redis and Lua scripts where atomicity was needed. Below we see similar performance
-                                      on the load test
-                                  </Typography>
-                                  <img src={'denoload.png'} width={600} height={400}></img>
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={2}>
-                            {/*<pre><code children={'auction-engine'}></code></pre>*/}
-                            <div>
-                                <Link sx={{margin: '0 auto'}} href={"https://nation.io"} target={"_blank"}>
-                                    <Nation width={40} height={40}/>
-                                </Link>
-                                (core)
-                            </div>
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={9}>
-                            <Typography variant={'body2'}>
-                                Nation was originally started with the intent of being the DAO (decentralized autonomous organization)
-                                platform for Solana. The core platform allows users to create organizations to collect funds for causes,
-                                vote on proposals, and other things
-                            </Typography>
-                            <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
-                                {[<Supabase/>, <Vercel/>, <Solana/>].map((x, i) =>
-                                    <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
-                                )}
-                            </ImageList>
-                        </Grid>
-      </>
-  },
+
   {
     icon1: <Render width={30} height={30}/>,
     icon2: <RenderFoundation1 height={50} width={100}/>,
@@ -248,39 +105,189 @@ const items = [
         </Box>
       </>,
     addtlContent: <Grid item xs={10} sm={10} md={9}>
-                            <div>
-                                <Typography marginBottom={0} variant={'body2'}>
-                                    my work at Render has involved migrating their entire network from Ethereum to Solana. the sum total of the work
-                                    is currently encapsulated in this <Link target={"_blank"} href={"https://github.com/rndr-network/render-program-library"}>monorepo</Link> (may not be public yet)
-                                </Typography>
-                                <List dense={true} disablePadding={true} sx={{ marginLeft: 2, listStyleType: 'disc' }}>
-                                    <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
-                                        <Typography variant={'body2'}>
-                                            implemented a BME (burn-and-mint equilibrium) <Link href={'https://github.com/rndr-network/RNPs/blob/main/Approved%20and%20on%20the%20Roadmap/rnp-001-bme.md'} target={"_blank"}>proposal</Link>
-                                        </Typography>
-                                    </ListItem>
-                                    <ListItem disablePadding={true} sx={{ display: 'list-item' }} >
-                                        <Typography variant={'body2'}>
-                                            token bridge so users can burn their ETH RNDR for Solana RENDER via <Link href={'https://wormhole.com/'} target={"_blank"}>wormhole</Link>
-                                        </Typography>
-                                    </ListItem>
-                                </List>
-                                <Typography variant={'caption'}>
-                                    several Solana contracts in Rust for controlling emissions based on a schedule, burn-and-mint equilibrium, bridging tokens from Ethereum to Solana, tokenizing entities (GPU nodes that run rendering jobs), etc
-                                    <br/>
-                                    Typescript servers and (cranker) jobs for serving data and orchestrating operations against Solana
-                                    <br/>
-                                    Redis to facilitate the token bridge relayer and ETH fee reinbursement
-                                    <br/>
-                                    Postgres backing a dashboard matching users with node operators
-                                    <br/>
-                                    all running in a large Kubernetes cluster with Grafana/Prometheus/Alertmanager/Loki/Tempo monitoring stack, Vault and <Link href={'https://bank-vaults.dev/'} target={'_blank'}>bank-vaults.dev</Link> for secret management and injection, Nginx ingress
-                                </Typography>
-                            </div>
-                        </Grid>,
+        <div>
+            <Typography marginBottom={0} variant={'body2'}>
+                In process of migrating their entire network from Ethereum to Solana. so far:
+              {/* the sum total of the work
+                is currently encapsulated in this <Link target={"_blank"} href={"https://github.com/rndr-network/render-program-library"}>monorepo</Link> (may not be public yet)*/}
+            </Typography>
+            <List dense={true} disablePadding={true} sx={{ marginLeft: 2, listStyleType: 'disc' }}>
+                <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
+                    <Typography variant={'body2'}>
+                        implemented a BME (burn-and-mint equilibrium) <Link href={'https://github.com/rndr-network/RNPs/blob/main/Approved%20and%20on%20the%20Roadmap/rnp-001-bme.md'} target={"_blank"}>proposal</Link>. Render is minted
+                      each epoch based on said pre-defined schedule. A separate process listens for Render job completions and buys and burns an amount of Solana RENDER as a function of the # of ETH RNDR spent on the job
+                    </Typography>
+                </ListItem>
+                <ListItem disablePadding={true} sx={{ display: 'list-item' }} >
+                    <Typography variant={'body2'}>
+                        token bridge so users can convert their ETH RNDR for Solana RENDER via <Link href={'https://wormhole.com/'} target={"_blank"}>wormhole</Link> and receive incentives for doing so
+                    </Typography>
+                </ListItem>
+            </List>
+          <Typography variant={'caption'} fontWeight={'bold'}>
+            Tech
+          </Typography><br/>
+            <Typography variant={'caption'}>
+                several Solana contracts in Rust for controlling emissions based on a schedule, burn-and-mint equilibrium, bridging tokens from Ethereum to Solana, tokenizing entities (nodes that complete render jobs from artists are cNFTs), releasing various reward channels
+                <br/>
+                Typescript servers and (cranker) jobs for serving/indexing data out of Redis/Postgres and orchestrating operations against Solana
+                <br/>
+                Token bridge relayer to redeem wormhole VAAs for RENDER Solana side
+                <br/>
+                stats dashboard backed by Postgres that node operators and holders can utilize to track down their payments
+                <br/>
+                all running in a Kubernetes cluster with Grafana/Prometheus/Alertmanager/Loki/Tempo observability stack, Pagerduty alerting, Vault and <Link href={'https://bank-vaults.dev/'} target={'_blank'}>bank-vaults.dev</Link> for secret management and injection, Nginx ingress
+            </Typography>
+        </div>
+    </Grid>,
     date: 'May 2023'
+  },
+  {
+    icon1:  <Nation width={30} height={30}/>,
+    icon2: <Box sx={{width: 100, m: 'auto', p: 0, display: 'block'}}>
+      <Nation width={30} height={30}/>
+    </Box>,
+    title: 'Nation',
+    description:
+      <>
+        <Typography color="text.secondary" variant="body1" sx={{my: 0.5}}>
+          The DAO (Distributed Autonomous Organization) platform for Solana
+        </Typography>
+        <div>
+          <ImageList sx={{width: nationIcons.length * 25, height: 30, paddingTop: 1}} cols={nationIcons.length}>
+            {nationIcons.map((x, i) =>
+              <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
+            )}
+          </ImageList>
+        </div>
+      </>,
+    date: 'Oct 2022',
+    addtlContent: <>
+      <Grid item xs={12} sm={10} md={2}>
+        <div>
+          <Link sx={{margin: '0 auto'}} href={"https://onvellum.com"} target={'_blank'}>
+            <Vellum width={60} height={40}/>
+            {/*<Image src={"assets/VellumLogo.svg"} width={60} height={40}/>*/}
+          </Link>
+        </div>
+      </Grid>
+      <Grid item xs={12} sm={10} md={10}>
+        <div>
+          <Typography marginBottom={0} paragraph variant={'body2'}> a Docusign-like platform for distributed (implemented against the Solana blockchain) signing of documents</Typography>
+          <List dense={true} disablePadding={true} sx={{ marginLeft: 2, listStyleType: 'disc' }}>
+            <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
+              <Typography variant={'body2'}>
+                ability to draft documents with GPT-4 integration
+              </Typography>
+            </ListItem>
+            <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
+              <Typography variant={'body2'}>
+                post-execution: run actions once the document has been signed like transfering funds from one account to another
+              </Typography>
+            </ListItem>
+          </List>
+          <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
+            {[
+              <Supabase/>,
+              <Vercel/>,
+              <Solana/>
+            ].map((x, i) =>
+              <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
+            )}
+          </ImageList>
+          <Typography variant={'caption'}>Next.js service on Vercel with Supabase (postgres, realtime sockets, blob storage) backend and Solana contracts in Rust for writing documents to the blockchain and running post-execution</Typography>
+        </div>
+        <br/>
+      </Grid>
+      {/*sx={{ display: 'flex', textAlign: "center" }}*/}
+      <Grid item xs={12} sm={12} md={2}>
+        {/*sx={{alignItems:'center', margin: '0 0', padding: 0, color: 'inherit', textDecoration: 'inherit'}}*/}
+        <Link href={"https://caro.bid"} target={"_blank"}>
+          {/*<Image src={"apple-touch-icon.png"} width={40} height={40}></Image>*/}
+          <Image src={'caro-black.png'} width={65} height={45}/>
+        </Link>
+        {/*<Typography sx={{verticalAlign:'center', marginTop: '5px' , marginLeft: '2px', color: '#75db00', fontWeight: 'bold'}}>Caro</Typography>*/}
+      </Grid>
+      <Grid item xs={12} sm={10} md={10}>
+        <div>
+          <Typography variant={'body2'}>An auction engine implementing several real-time auction formats served as a Shopify widget that can be embedded in anyone's storefront. The following is a brief presentation given by Nation's CEO Ryan Shea about Caro</Typography>
+          <video width="400" height="310" controls>
+            <source src="https://github.com/amilkov3/ibexlabs/raw/0267d34391f5233ef432f9b1bf94adbada844e07/public/caro-presentation.mp4" type="video/mp4"/>
+          </video>
+          <ImageList  sx={{width: 4 * 25 , height: 30, paddingTop: 1}} cols={4}>
+            {[<Rust/>, <Postgres/>, <Deno/>, <Redis/>].map((x, i) =>
+              <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
+            )}
+          </ImageList>
+          <Typography variant={'caption'}>The service began as a Rust backend using actix. In order to achieve
+            the lowest latency possible an HFT-like architecture was used where each auction was assigned to a node
+            and loaded/stored in-mem on that node (auction id header based routing) where bids, checkouts (a bid is a declaration to buy a product,
+            a checkout is an actual purchase), and other features were all settled in mem. This achieved microsecond latencies
+            and a single Docker instance was loaded tested at ~500 req/s (bids)
+          </Typography>
+          <img src={'rustload.png'} width={600} height={400}></img>
+          <Typography variant={'caption'}>
+            However Rust proved to be prohibitive in more pragmatic ways:
+          </Typography>
+          <br/>
+          <Typography variant={'caption'}>
+            * complexity and upfront mental overhead is high. which makes development pace slow and these issues compound as you add more people
+          </Typography>
+          <br/>
+          <Typography variant={'caption'}>
+            * packaging a binary was taking up to 3.5 minutes, and the strict (and time consuming) compile-build loop made local development slow
+          </Typography>
+          <br/>
+          <Typography variant={'caption'}>
+            * an unexpected bug with actix websockets caused the entire server to hang after ~5 connections. after a day, we gave up trying to find the source
+            of the issue and simply replaced active with [axum](https://github.com/tokio-rs/axum) which resolved the issue
+          </Typography>
+          <br/>
+          <Typography variant={'caption'}>
+            * Docker images were massive
+          </Typography>
+          <br/>
+          <Typography variant={'caption'}>
+            * tooling is still generally immature though this is improving quickly. we had to patch numerous crates along the way and simple things like hooking up traces to Datadog took forever due to poor documentation/lack of examples on Github of people
+            that had already done it
+          </Typography>
+          <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
+            {[<Deno/>, <Redis/>].map((x, i) =>
+              <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
+            )}
+          </ImageList>
+          <Typography variant={'caption'}>
+            since this entire service effectively I/O bound we simply ported it to Deno, a new Javascript runtime built on Rust by the creator of Node and achieved similar benchmarks but now the development loop was instantaneous
+            and tooling worked out of the box. We also moved from storing things in-mem and persisting async to Postgres to using Redis and Lua scripts where atomicity was needed. Below we see similar performance
+            on the load test
+          </Typography>
+          <img src={'denoload.png'} width={600} height={400}></img>
+        </div>
+        <br/>
+      </Grid>
+      <Grid item xs={12} sm={12} md={2}>
+        {/*<pre><code children={'auction-engine'}></code></pre>*/}
+        <div>
+          <Link sx={{margin: '0 auto'}} href={"https://nation.io"} target={"_blank"}>
+            <Nation width={40} height={40}/>
+          </Link>
+          (core)
+        </div>
+      </Grid>
+      <Grid item xs={12} sm={12} md={9}>
+        <Typography variant={'body2'}>
+          Nation was originally started with the intent of being the DAO (decentralized autonomous organization)
+          platform for Solana. The core platform allows users to create organizations to collect funds for causes,
+          vote on proposals, and other things
+        </Typography>
+        <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
+          {[<Supabase/>, <Vercel/>, <Solana/>].map((x, i) =>
+            <ImageListItem key={i}>{React.cloneElement(x, {width: 20, height: 20})}</ImageListItem>
+          )}
+        </ImageList>
+      </Grid>
+    </>
   }
-
 ];
 
 export default function Timeline1() {
@@ -398,7 +405,7 @@ export default function Timeline1() {
                   event.stopPropagation();
                 }}
               >
-                <span>Show more</span>
+                <span>Show {addtlContentOpen ? 'less': 'more'}</span>
                 {addtlContentOpen ? <KeyboardArrowUpIcon
                   fontSize="small"
                   sx={{ mt: '1px', ml: '2px' }}
@@ -517,8 +524,8 @@ export default function Timeline1() {
                       {title}
                     </Typography>
                     {description}
-                      <span>Show more</span>
-                      {addtlContentOpen ? <KeyboardArrowUpIcon
+                      <span>Show {index == addtlContentIdx && addtlContentOpen ? 'less': 'more'}</span>
+                      {index == addtlContentIdx && addtlContentOpen ? <KeyboardArrowUpIcon
                         fontSize="small"
                         sx={{ mt: '1px', ml: '2px' }}
                         /> : <KeyboardArrowDownIcon

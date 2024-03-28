@@ -504,7 +504,7 @@ export default function getLPTheme(mode: PaletteMode): ThemeOptions {
           }),
         },
       },
-      MuiMenuItem: {
+      /*MuiMenuItem: {
         styleOverrides: {
           root: ({ theme }) => ({
             borderRadius: '99px',
@@ -515,7 +515,7 @@ export default function getLPTheme(mode: PaletteMode): ThemeOptions {
             }),
           }),
         },
-      },
+      },*/
       MuiPaper: {
         styleOverrides: {
           root: ({ theme }) => ({
@@ -590,7 +590,7 @@ export default function getLPTheme(mode: PaletteMode): ThemeOptions {
           },
         },
       },
-      MuiTextField: {
+      /*MuiTextField: {
         styleOverrides: {
           root: ({ theme }) => ({
             '& label .Mui-focused': {
@@ -652,7 +652,7 @@ export default function getLPTheme(mode: PaletteMode): ThemeOptions {
             }),
           }),
         },
-      },
+      },*/
     },
   };
 }

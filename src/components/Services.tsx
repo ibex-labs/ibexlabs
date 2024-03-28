@@ -17,6 +17,7 @@ import Gavel from '@mui/icons-material/Gavel';
 import {ImageList, ImageListItem, ImageListItemBar, List, ListItem} from "@mui/material";
 import {Image} from "mui-image";
 import {ReactComponent as Vellum} from "../assets/VellumLogoWhite.svg";
+import {Manna} from "./logo";
 
 const items = [
   {
@@ -25,24 +26,34 @@ const items = [
     description:
       'beautiful UIs',
     content: <>
-      <Typography variant={"body2"}>
-        React frontends
+      <Typography variant={"body1"}>
+        Here are some React web apps we've built
       </Typography>
-      <ImageList sx={{ py: 5, m: '0 auto', width: '100%', height: '100%', display: 'block' }} cols={2} rowHeight={164}>
+      <ImageList sx={{ py: 2, m: '0 auto', width: '100%', height: '100%', display: 'block' }} cols={1} rowHeight={100}>
         {[{
           title: 'Caro',
-          desc: 'Shopify widget backed by an auction engine',
-          img: <Link href={"https://caro.bid"} target={"_blank"}><Image sx={{backgroundColor: 'white'}} src={'caro-black.png'} width={100} height={65}/></Link>
+          desc: <Typography>Shopify widget backed by an auction engine</Typography>,
+          img: <Link href={"https://caro.bid"} target={"_blank"}><img style={{backgroundColor: 'white'}} src={'caro-black.png'} width={'150em'} height={'250em'}/></Link>
         }, {
           title: 'Vellum',
-          desc: 'decentralized Docusign',
+          desc: <Typography>decentralized Docusign</Typography>,
           img: <Link href={"https://onvellum.com"} target={"_blank"}><Vellum width={100} height={65} /></Link>
+        }, {
+          title: 'Manna',
+          desc: <div style={{overflow: "hidden", textOverflow: "ellipsis", width: '60rem', height: 60}}>
+            <Typography noWrap>
+              3d web platform for autonomous drone flight path
+              <br/>
+              planning in urban environments
+            </Typography>
+          </div>,
+          img: <Link href={'https://www.manna.aero'} target={"_blank"}><Manna width={100} height={100}/></Link>
         }].map(({title, img, desc}, i) => (
           <ImageListItem key={`image${i}`}>
             {img}
             <ImageListItemBar
               //title={}
-              subtitle={<Typography paragraph >{desc}</Typography>}
+              subtitle={desc}
               position="below"
             />
           </ImageListItem>
@@ -55,21 +66,25 @@ const items = [
     title: 'Backend',
     description:
       'distributed systems. infra. devops',
-    content: <Typography variant={"body2"}>
-        experience building many different kinds of distributed systems. to name a few:
+    content: <Typography variant={"body1"}>
+        we've built a variety of distributed systems:
         <List disablePadding={true} dense={true} sx={{ marginLeft: 2, listStyleType: 'disc', padding: 0 }}>
-            <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
+            <ListItem disablePadding={true} sx={{ display: 'list-item', py: 1 }}>
                 realtime message based backends on Node (Deno)
             </ListItem>
-            <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
+            <ListItem disablePadding={true} sx={{ display: 'list-item', py: 1 }}>
                 HFT-like order books and infrastructure tools like jobs, queues, GRPC macro frameworks in Rust
             </ListItem>
-            <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
+            <ListItem disablePadding={true} sx={{ display: 'list-item', py: 1 }}>
                 high traffic Scala backends against MongoDB
             </ListItem>
-            <ListItem disablePadding={true} sx={{ display: 'list-item' }}>
+            <ListItem disablePadding={true} sx={{ display: 'list-item', py: 1 }}>
                 high availability object graph service in Go backed by sharded MySQL
                 and Elasticsearch for search with numerous asynchronous processing pipelines
+            </ListItem>
+            <ListItem disablePadding={true} sx={{ display: 'list-item', py: 4 }}>
+              and we have experience in CI/CD, spinning up infra in Terraform (primarily in AWS), standing up and managing Kubernetes clusters, observability pipelines, and anything else needed to get
+              things live
             </ListItem>
         </List>
     </Typography>
@@ -79,15 +94,17 @@ const items = [
     title: 'Smart contracts',
     description:
       'writing and auditing',
-    content: <Typography variant={"body2"}>
-        experience building and scaling blockchain networks against Ethereum and Solana involving token bridges,
-        burn and mint equilibrium, entity management, etc. along with services otherwise persisting
-        data to them
+    content: <Typography variant={"body1"}>
+        we have experience building and scaling blockchain networks against Ethereum and Solana. Things like token bridges,
+        burn-and-mint equilibrium models, cNFTs for entity management, and the off chain components needed to make things go.
+      <br/>
+      <br/>
+        we also have extensive experience writing and auditing smart contracts on Solana
     </Typography>
   },
 ];
 
-export default function Services1() {
+export default function Services() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
 
   const handleItemClick = (index: number) => {

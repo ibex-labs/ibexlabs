@@ -34,7 +34,7 @@ import Email from '@mui/icons-material/Email';
 import EditIcon from '@mui/icons-material/Edit';
 import {blue, grey} from "@mui/material/colors";
 import Timeline from "./components/Timeline";
-import getLPTheme from "./theme";
+import getLPTheme, {secondary} from "./theme";
 import Services from "./components/Services";
 import * as React from "react";
 import {timelineOppositeContentClasses} from "@mui/lab";
@@ -143,13 +143,12 @@ const StyledMenu = styled((props: MenuProps) => (
   />
 ))(({ theme }) => ({
   '& .MuiPaper-root': {
-    borderRadius: 6,
+    borderRadius: 20,
     marginTop: theme.spacing(1),
     minWidth: 180,
     color:
-      theme.palette.mode === 'light' ? 'rgb(55, 65, 81)' : theme.palette.grey[300],
-    boxShadow:
-      'rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
+      theme.palette.mode === 'light' ? 'rgb(55, 65, 81)' : secondary,
+    boxShadow: secondary,
     '& .MuiMenu-list': {
       padding: '4px 0',
     },
@@ -159,12 +158,12 @@ const StyledMenu = styled((props: MenuProps) => (
         color: theme.palette.text.secondary,
         marginRight: theme.spacing(1.5),
       },
-      '&:active': {
+      /*'&:active': {
         backgroundColor: alpha(
           theme.palette.primary.main,
           theme.palette.action.selectedOpacity,
         ),
-      },
+      },*/
     },
   },
 }));
@@ -436,13 +435,13 @@ function App() {
                     >
                       <Stack spacing={1}>
                         <div>
-                          <TextField required name={"name"} label={"Name"}/>
+                          <TextField InputProps={{sx: {borderRadius: 2}}}  required name={"name"} label={"Name"}/>
                         </div>
                         <div>
-                          <TextField required name={"email"} label={"Email"}/>
+                          <TextField InputProps={{sx: {borderRadius: 2}}} required name={"email"} label={"Email"}/>
                         </div>
                         <div>
-                          <Textarea minRows={3} required name={"message"} placeholder={"Message"}/>
+                          <Textarea minRows={6} required name={"message"} placeholder={"Message"}/>
                         </div>
                       </Stack>
                       <Button color={"primary"} type={"submit"}>Submit</Button>
