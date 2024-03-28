@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.7ad8a467.css",
-    "main.js": "/static/js/main.0acb4b6e.js",
+    "main.js": "/static/js/main.2f5eafdf.js",
     "static/js/787.37eac4dc.chunk.js": "/static/js/787.37eac4dc.chunk.js",
     "static/media/roboto-all-500-normal.woff": "/static/media/roboto-all-500-normal.0ab669b7a0d19b178f57.woff",
     "static/media/roboto-all-700-normal.woff": "/static/media/roboto-all-700-normal.a457fde362a540fcadff.woff",
@@ -70,11 +70,11 @@
     "static/media/haskell.svg": "/static/media/haskell.b93ff47fef2bc74e1abce46373d1af6a.svg",
     "static/media/vercel-white.svg": "/static/media/vercel-white.577a06ff0d42d13dca56707fc8a4bc6c.svg",
     "main.7ad8a467.css.map": "/static/css/main.7ad8a467.css.map",
-    "main.0acb4b6e.js.map": "/static/js/main.0acb4b6e.js.map",
+    "main.2f5eafdf.js.map": "/static/js/main.2f5eafdf.js.map",
     "787.37eac4dc.chunk.js.map": "/static/js/787.37eac4dc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7ad8a467.css",
-    "static/js/main.0acb4b6e.js"
+    "static/js/main.2f5eafdf.js"
   ]
 }
