@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.80bce77f.css",
-    "main.js": "/static/js/main.9873a4c3.js",
+    "main.css": "/static/css/main.7ad8a467.css",
+    "main.js": "/static/js/main.0acb4b6e.js",
     "static/js/787.37eac4dc.chunk.js": "/static/js/787.37eac4dc.chunk.js",
     "static/media/roboto-all-500-normal.woff": "/static/media/roboto-all-500-normal.0ab669b7a0d19b178f57.woff",
     "static/media/roboto-all-700-normal.woff": "/static/media/roboto-all-700-normal.a457fde362a540fcadff.woff",
@@ -25,6 +25,7 @@
     "static/media/roboto-cyrillic-700-normal.woff2": "/static/media/roboto-cyrillic-700-normal.d010f1f324e111a22e53.woff2",
     "static/media/roboto-cyrillic-400-normal.woff2": "/static/media/roboto-cyrillic-400-normal.71a33b6b50457b2c903a.woff2",
     "static/media/roboto-cyrillic-300-normal.woff2": "/static/media/roboto-cyrillic-300-normal.1431d1cef06ad04f5458.woff2",
+    "static/media/manna.svg": "/static/media/manna.39c8bdf461205aa87f3bb838b94cb06b.svg",
     "static/media/roboto-greek-300-normal.woff2": "/static/media/roboto-greek-300-normal.db2632771401f61463fe.woff2",
     "static/media/roboto-greek-400-normal.woff2": "/static/media/roboto-greek-400-normal.c35e4c3958e209d17b31.woff2",
     "static/media/roboto-greek-500-normal.woff2": "/static/media/roboto-greek-500-normal.9ac81fefbe6c319ea40b.woff2",
@@ -39,6 +40,7 @@
     "static/media/rust-white.svg": "/static/media/rust-white.5b181c4eb567e7d44052fdc7bdfb6958.svg",
     "static/media/rust.svg": "/static/media/rust.5b181c4eb567e7d44052fdc7bdfb6958.svg",
     "static/media/rust-full.svg": "/static/media/rust-full.cc29dcf3e8e2a26623cace577839e265.svg",
+    "static/media/nodejs-horizontal.svg": "/static/media/nodejs-horizontal.3126ba8b6c021e37ebaccbaaa3d2ef19.svg",
     "static/media/nation-white.svg": "/static/media/nation-white.54aeceb45c0b07fbf5690632a40c46b0.svg",
     "static/media/scala-full-white.svg": "/static/media/scala-full-white.165d80269fa5dc9ac67633ebbb8031be.svg",
     "static/media/typescript-full.svg": "/static/media/typescript-full.ca09a6bf86c645540776d5ae261f6ad7.svg",
@@ -48,6 +50,7 @@
     "static/media/docker.svg": "/static/media/docker.5acac4b4a9268616752dd9c3d466a35e.svg",
     "static/media/clojure-full.svg": "/static/media/clojure-full.fa407135a12c8d6bee52592f3f521448.svg",
     "static/media/redis.svg": "/static/media/redis.2fcdc25cae6d651b486e1b3c98bcae15.svg",
+    "static/media/reactjs-ar21.svg": "/static/media/reactjs-ar21.cfbc1fb0cceb442c7774b91230a51de0.svg",
     "static/media/solana.svg": "/static/media/solana.16cf052591af5db073aca3050cfe8276.svg",
     "static/media/render1.svg": "/static/media/render1.2bead2f600159161d35a214d05aa19ca.svg",
     "static/media/VellumLogoWhite.svg": "/static/media/VellumLogoWhite.74144b2f04fdd0e97d93dc57d1075c9d.svg",
@@ -66,12 +69,12 @@
     "index.html": "/index.html",
     "static/media/haskell.svg": "/static/media/haskell.b93ff47fef2bc74e1abce46373d1af6a.svg",
     "static/media/vercel-white.svg": "/static/media/vercel-white.577a06ff0d42d13dca56707fc8a4bc6c.svg",
-    "main.80bce77f.css.map": "/static/css/main.80bce77f.css.map",
-    "main.9873a4c3.js.map": "/static/js/main.9873a4c3.js.map",
+    "main.7ad8a467.css.map": "/static/css/main.7ad8a467.css.map",
+    "main.0acb4b6e.js.map": "/static/js/main.0acb4b6e.js.map",
     "787.37eac4dc.chunk.js.map": "/static/js/787.37eac4dc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.80bce77f.css",
-    "static/js/main.9873a4c3.js"
+    "static/css/main.7ad8a467.css",
+    "static/js/main.0acb4b6e.js"
   ]
 }
