@@ -28,26 +28,21 @@ import {
   TS,
   ReactJs,
   Node,
+  KotlinFull,
+  SolidityFull,
+  CPlusPlus
 } from "./logo";
 
 const members = [
   {
     name: "Alex Milkov",
     bg: "Алекcандър Милков",
+    blurb: "toured some tech companies in the US and then settled on crypto. lots of distributed/backend systems and Solana experience",
     job: "Founder",
     image: "alex1.jpg",
     skills: [
       [<GoFull />, 0.5, "3yrs"],
       [<RustFull />, 0.2, "4yrs"],
-      [<TS />, 0.5, "3yrs"],
-      [<PythonFull />, 0.25, "4yrs"],
-      [<ScalaFull />, 0.75, "3yrs"],
-      [<HaskellFull />, 0.8, "2yrs"],
-      [<ClojureFull />, 0.6, "1yr"],
-    ],
-    technologies: [
-      [<GoFull />, 0.5, "3yrs"],
-      [<RustFull />, 0.2, "3yrs"],
       [<TS />, 0.5, "3yrs"],
       [<PythonFull />, 0.25, "4yrs"],
       [<ScalaFull />, 0.75, "3yrs"],
@@ -85,7 +80,52 @@ const members = [
     ],
   },
   {
+    name: "Stefan Iliev",
+    bg: "Стефан Илиев",
+    blurb: "building an ETH layer 2 (ten.xyz). knows EVM and smart contract development inside and out",
+    job: "Engineer",
+    image: "stefan.jpeg",
+    skills: [
+      [<GoFull />, 0.5, "3yrs"],
+      [<TS />, 0.5, "3yrs"],
+      [<PythonFull />, 0.25, "4yrs"],
+      [<KotlinFull />, 0.75, "3yrs"],
+      [<SolidityFull />, 0.75, "3yrs"],
+      [<CPlusPlus/>, 0.75, '3yrs'],
+    ],
+    socials: [
+      {
+        name: "Telegram",
+        icon: (
+          <Link href={"https://t.me/incompetentengineer"} target={"_blank"}>
+            <Telegram />
+          </Link>
+        ),
+      },
+      /*{
+        name: "Mail",
+        icon: (
+          <Link href={"mailto:alex@ibex.trade"} target={"_blank"}>
+            <Mail />
+          </Link>
+        ),
+      },
+      {
+        name: "Resume",
+        icon: (
+          <Link
+            href={"https://milkov.tech/resume/resume.pdf"}
+            target={"_blank"}
+          >
+            <Typography variant={"caption"}>Resume</Typography>
+          </Link>
+        ),
+      },*/
+    ],
+  },
+  {
     name: "Hristo Dimitrov",
+    blurb: "got into programming as a kid via phone phreaking/hacking culture in post-communist Bulgaria in the 90s. all-rounder with frontend expertise",
     bg: "Христо Димитров",
     job: "Engineer",
     image: "hristo.png",
@@ -128,6 +168,8 @@ const members = [
   },
 ];
 
+const skillLogoHeight = 35
+
 export default function TeamCards() {
   return (
     <Box
@@ -160,9 +202,9 @@ export default function TeamCards() {
                   {/* <Typography variant="caption" component="div">
                                         {member.bg}
                                     </Typography> */}
-                  <Typography color="text.secondary" variant="body2">
+                  {/*<Typography color="text.secondary" variant="body2">
                     {member.job}
-                  </Typography>
+                  </Typography>*/}
                   <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
                     <Stack direction="column">
                       {/*<ImageList sx={{width: 100 , height: member.skills.length * 80, paddingTop: 1}} cols={1}>
@@ -180,11 +222,13 @@ export default function TeamCards() {
                                                     </ImageListItem>
                                                 )}
                                             </ImageList>*/}
-                      <ImageList sx={{ width: 305, height: 200 }} cols={3}>
+                      <ImageList sx={{ width: '18rem', height: skillLogoHeight * 2 }} cols={5}>
                         {member.skills.map(([x, _, str], i) => (
                           <ImageListItem sx={{ alignItems: "center" }} key={i}>
-                            {React.cloneElement(x, { width: 95, height: 35 })}
-                            <Typography variant={"caption"}>{str}</Typography>
+                            {
+                              // @ts-ignore
+                              React.cloneElement(x, { width: '3rem', height: skillLogoHeight })
+                            }
                           </ImageListItem>
                         ))}
                       </ImageList>
@@ -194,6 +238,11 @@ export default function TeamCards() {
                                                 <Typography variant={'caption'}>{skill}</Typography>
                                             )}
                                         </Stack>*/}
+                  </Stack>
+                  <Stack direction="row" spacing={2} sx={{ mt: 2, width: '90%'}}>
+                    <Typography variant={"caption"}>
+                      {member.blurb}
+                    </Typography>
                   </Stack>
                   <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
                     {member.socials.map((social) => (

@@ -39,7 +39,8 @@ import { ReactComponent as RenderLogo } from "../assets/render.svg";
 import { ReactComponent as RenderLogo1 } from "../assets/render1.svg";
 import { ReactComponent as RustWhiteLogo } from "../assets/rust-white.svg";
 import { ReactComponent as RenderFoundationLogo } from "../assets/render-foundation.svg";
-import { Image } from "mui-image";
+import { ReactComponent as KotlinFullLogo } from "../assets/kotlin-full.svg";
+import { ReactComponent as CPlusPlusLogo } from "../assets/c++.svg";
 
 export const TS = (props: any) => (
   <Tooltip title={"Typescript"} {...props}>
@@ -124,12 +125,12 @@ export const Scala = (props: any) => (
 );
 export const Node = (props: any) => (
   <Tooltip title={"NodeJS"} {...props}>
-    <NodeFullLogo viewBox="0 0 166 52" />
+    <NodeFullLogo />
   </Tooltip>
 );
 export const ReactJs = (props: any) => (
-  <Tooltip title={"Scala"} {...props}>
-    <ReactFullLogo viewBox="0 0 95 52" />
+  <Tooltip title={"ReactJs"} {...props}>
+    <ReactFullLogo />
   </Tooltip>
 );
 export const ScalaFull = (props: any) => (
@@ -199,7 +200,25 @@ export const RenderFoundation = (props: any) => (
   </Tooltip>
 );
 export const Manna = (props: any) => (
-  <Tooltip title={"Render Foundation"} {...props}>
+  <Tooltip title={"Manna"} {...props}>
     <MannaLogo />
+  </Tooltip>
+);
+
+export const KotlinFull = (props: any) => (
+  <Tooltip title={"Kotlin"} {...props}>
+    <KotlinFullLogo />
+  </Tooltip>
+);
+
+export const CPlusPlus = (props: any) => (
+  <Tooltip title={"C++"} {...props}>
+    <CPlusPlusLogo />
+  </Tooltip>
+);
+
+export const SolidityFull = (props: any) => (
+  <Tooltip title={"Solidity"} {...props}>
+    <img src={"solidity-full.png"} style={{marginTop: 5, display: 'block', height: 20, width: 40}}></img>
   </Tooltip>
 );

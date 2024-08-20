@@ -224,6 +224,7 @@ const getDesignTokens = (mode: PaletteMode) => ({
 });
 
 export default function getLPTheme(mode: PaletteMode): ThemeOptions {
+  // @ts-ignore
   return {
     ...getDesignTokens(mode),
     components: {

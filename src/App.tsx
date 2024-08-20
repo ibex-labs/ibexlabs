@@ -242,12 +242,8 @@ function App() {
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = (e, r) => {
-    if (e.key == 'Tab') {
-      return
-    }
-    console.log(`handleClose ${e.key}, ${r}`)
-    setAnchorEl(null);
+  const handleClose = (e: any) => {
+
   };
 
   const StyledBox = styled(Box)`
@@ -420,7 +416,13 @@ function App() {
                   }}
                   anchorEl={anchorEl}
                   open={open}
-                  onClose={(e, r) => handleClose(e)}
+                  onClose={(e) => {
+                    // @ts-ignore
+                    if (e.key == 'Tab') {
+                      return
+                    }
+                    setAnchorEl(null);
+                    }}
                 >
                   <MenuItem disableRipple>
                     <Box
@@ -453,17 +455,20 @@ function App() {
             </AppBar>
           </Box>
           <Container style={{marginTop: 70, zIndex: 1000}}>
-            <Container id="title" sx={{pt: {xs: 8, sm: 16}}}>
-              <div>
-                <Typography component="h2" variant="h4" color="text.primary">
-                  <StyledBox className="typewriter-effect">
-                    <Box style={customStyle} className="text" id="typewriter-text">
-                      {text}
-                    </Box>
-                  </StyledBox>
-                </Typography>
-              </div>
-            </Container>
+            <Box>
+              <Container id="title" sx={{pt: {xs: 8, sm: 16}}}>
+                <p style={customStyle} className={'line-1 anim-typewriter'}>{text}</p>
+                {/*<div>
+                  <Typography component="h2" variant="h4" color="text.primary">
+                    <StyledBox className="typewriter-effect">
+                      <Box style={customStyle} className="text" id="typewriter-text">
+                        {text}
+                      </Box>
+                    </StyledBox>
+                  </Typography>
+                </div>*/}
+              </Container>
+            </Box>
             <Timeline/>
             <Stack paddingTop={1} spacing={2}>
               <div>

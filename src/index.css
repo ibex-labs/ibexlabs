@@ -15,3 +15,41 @@ code {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.line-1{
+  position: relative;
+  top: 50%;
+  width: 24rem;
+  margin: 0 auto;
+  border-right: 2px solid rgba(255,255,255,.75);
+  font-size: 180%;
+  font-family: monospace;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-80%);
+}
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 1s steps(30) 300ms 1 normal both,
+  blinkTextCursor 500ms steps(30) 5 normal;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 13em;
+  }
+}
+
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+  100% {
+    opacity: 1;
+  }
+}
