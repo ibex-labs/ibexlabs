@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.7ad8a467.css",
-    "main.js": "/static/js/main.159803ea.js",
+    "main.css": "/static/css/main.986cfe09.css",
+    "main.js": "/static/js/main.e744321b.js",
     "static/js/787.37eac4dc.chunk.js": "/static/js/787.37eac4dc.chunk.js",
     "static/media/roboto-all-500-normal.woff": "/static/media/roboto-all-500-normal.0ab669b7a0d19b178f57.woff",
     "static/media/roboto-all-700-normal.woff": "/static/media/roboto-all-700-normal.a457fde362a540fcadff.woff",
@@ -40,7 +40,7 @@
     "static/media/rust-white.svg": "/static/media/rust-white.5b181c4eb567e7d44052fdc7bdfb6958.svg",
     "static/media/rust.svg": "/static/media/rust.5b181c4eb567e7d44052fdc7bdfb6958.svg",
     "static/media/rust-full.svg": "/static/media/rust-full.cc29dcf3e8e2a26623cace577839e265.svg",
-    "static/media/nodejs-horizontal.svg": "/static/media/nodejs-horizontal.3126ba8b6c021e37ebaccbaaa3d2ef19.svg",
+    "static/media/nodejs-horizontal.svg": "/static/media/nodejs-horizontal.7b9ef494fb8e5b08a86c4934e1903878.svg",
     "static/media/nation-white.svg": "/static/media/nation-white.54aeceb45c0b07fbf5690632a40c46b0.svg",
     "static/media/scala-full-white.svg": "/static/media/scala-full-white.165d80269fa5dc9ac67633ebbb8031be.svg",
     "static/media/typescript-full.svg": "/static/media/typescript-full.ca09a6bf86c645540776d5ae261f6ad7.svg",
@@ -50,7 +50,7 @@
     "static/media/docker.svg": "/static/media/docker.5acac4b4a9268616752dd9c3d466a35e.svg",
     "static/media/clojure-full.svg": "/static/media/clojure-full.fa407135a12c8d6bee52592f3f521448.svg",
     "static/media/redis.svg": "/static/media/redis.2fcdc25cae6d651b486e1b3c98bcae15.svg",
-    "static/media/reactjs-ar21.svg": "/static/media/reactjs-ar21.cfbc1fb0cceb442c7774b91230a51de0.svg",
+    "static/media/reactjs-ar21.svg": "/static/media/reactjs-ar21.5d0e860cc1d18fd6124f017b496cbc16.svg",
     "static/media/solana.svg": "/static/media/solana.16cf052591af5db073aca3050cfe8276.svg",
     "static/media/render1.svg": "/static/media/render1.2bead2f600159161d35a214d05aa19ca.svg",
     "static/media/VellumLogoWhite.svg": "/static/media/VellumLogoWhite.74144b2f04fdd0e97d93dc57d1075c9d.svg",
@@ -69,12 +69,12 @@
     "index.html": "/index.html",
     "static/media/haskell.svg": "/static/media/haskell.b93ff47fef2bc74e1abce46373d1af6a.svg",
     "static/media/vercel-white.svg": "/static/media/vercel-white.577a06ff0d42d13dca56707fc8a4bc6c.svg",
-    "main.7ad8a467.css.map": "/static/css/main.7ad8a467.css.map",
-    "main.159803ea.js.map": "/static/js/main.159803ea.js.map",
+    "main.986cfe09.css.map": "/static/css/main.986cfe09.css.map",
+    "main.e744321b.js.map": "/static/js/main.e744321b.js.map",
     "787.37eac4dc.chunk.js.map": "/static/js/787.37eac4dc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7ad8a467.css",
-    "static/js/main.159803ea.js"
+    "static/css/main.986cfe09.css",
+    "static/js/main.e744321b.js"
   ]
 }
