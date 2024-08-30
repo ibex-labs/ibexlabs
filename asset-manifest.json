@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.69d4e3df.css",
-    "main.js": "/static/js/main.7e3ab79b.js",
-    "static/js/787.37eac4dc.chunk.js": "/static/js/787.37eac4dc.chunk.js",
+    "main.css": "/static/css/main.3aaa7e1f.css",
+    "main.js": "/static/js/main.b591b5d3.js",
+    "static/js/453.f0b840b6.chunk.js": "/static/js/453.f0b840b6.chunk.js",
     "static/media/roboto-all-500-normal.woff": "/static/media/roboto-all-500-normal.0ab669b7a0d19b178f57.woff",
     "static/media/roboto-all-700-normal.woff": "/static/media/roboto-all-700-normal.a457fde362a540fcadff.woff",
     "static/media/roboto-all-400-normal.woff": "/static/media/roboto-all-400-normal.c5d001fa922fa66a147f.woff",
@@ -49,11 +49,13 @@
     "static/media/haskell-full.svg": "/static/media/haskell-full.9f3a24e90008a6c786fef8c5b9802a43.svg",
     "static/media/docker.svg": "/static/media/docker.5acac4b4a9268616752dd9c3d466a35e.svg",
     "static/media/clojure-full.svg": "/static/media/clojure-full.fa407135a12c8d6bee52592f3f521448.svg",
+    "static/media/kotlin-full.svg": "/static/media/kotlin-full.21804dcf1f9ffc8122845c660a252844.svg",
     "static/media/redis.svg": "/static/media/redis.2fcdc25cae6d651b486e1b3c98bcae15.svg",
     "static/media/reactjs-ar21.svg": "/static/media/reactjs-ar21.5d0e860cc1d18fd6124f017b496cbc16.svg",
     "static/media/solana.svg": "/static/media/solana.16cf052591af5db073aca3050cfe8276.svg",
     "static/media/render1.svg": "/static/media/render1.2bead2f600159161d35a214d05aa19ca.svg",
     "static/media/VellumLogoWhite.svg": "/static/media/VellumLogoWhite.74144b2f04fdd0e97d93dc57d1075c9d.svg",
+    "static/media/c++.svg": "/static/media/c++.04edbde331e2d6cf9c5f2f3fa1ef88a2.svg",
     "static/media/python.svg": "/static/media/python.439dd3d27dbba23fa07acb94633c7a7d.svg",
     "static/media/render.svg": "/static/media/render.468afc133748a17460a03323a6418d4c.svg",
     "static/media/clojure.svg": "/static/media/clojure.be22d27981f83140b31d617c5e855076.svg",
@@ -69,12 +71,12 @@
     "index.html": "/index.html",
     "static/media/haskell.svg": "/static/media/haskell.b93ff47fef2bc74e1abce46373d1af6a.svg",
     "static/media/vercel-white.svg": "/static/media/vercel-white.577a06ff0d42d13dca56707fc8a4bc6c.svg",
-    "main.69d4e3df.css.map": "/static/css/main.69d4e3df.css.map",
-    "main.7e3ab79b.js.map": "/static/js/main.7e3ab79b.js.map",
-    "787.37eac4dc.chunk.js.map": "/static/js/787.37eac4dc.chunk.js.map"
+    "main.3aaa7e1f.css.map": "/static/css/main.3aaa7e1f.css.map",
+    "main.b591b5d3.js.map": "/static/js/main.b591b5d3.js.map",
+    "453.f0b840b6.chunk.js.map": "/static/js/453.f0b840b6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.69d4e3df.css",
-    "static/js/main.7e3ab79b.js"
+    "static/css/main.3aaa7e1f.css",
+    "static/js/main.b591b5d3.js"
   ]
 }
