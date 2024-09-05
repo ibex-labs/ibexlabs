@@ -9,9 +9,9 @@ import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import React from "react";
+import React, {useState} from "react";
 import { Mail, Telegram } from "@mui/icons-material";
-import { ImageList, ImageListItem, Link } from "@mui/material";
+import {Button, DialogProps, ImageList, ImageListItem, Link, Modal, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from "@mui/material";
 import {
   // Clojure,
   // Go,
@@ -30,8 +30,11 @@ import {
   Node,
   KotlinFull,
   SolidityFull,
-  CPlusPlus
+  CPlusPlus, Solana
 } from "./logo";
+import Timeline from "../components/Timeline";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 const members = [
   {
@@ -49,6 +52,7 @@ const members = [
       [<HaskellFull />, 0.8, "2yrs"],
       [<ClojureFull />, 0.6, "1yr"],
     ],
+    timeline: true,
     socials: [
       {
         name: "Telegram",
@@ -171,6 +175,20 @@ const members = [
 const skillLogoHeight = 35
 
 export default function TeamCards() {
+
+  const [open, setOpen] = React.useState(false);
+  const [openIdx, setOpenIdx] = useState(-1)
+
+  const handleClickOpen = (ev: any, idx: number) => {
+    ev.preventDefault()
+    setOpen(!open);
+    setOpenIdx(idx == openIdx ? -1: idx)
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Box
       component="section"
@@ -180,15 +198,16 @@ export default function TeamCards() {
             }}*/
     >
       <Container sx={{ py: 10 }} maxWidth="lg">
-        <Grid container spacing={3}>
+        <Grid container spacing={2} justifyContent={'center'} alignItems={'center'}>
           {members.map((member, index) => (
-            <Grid item key={index} xs={12} sm={6}>
+            <Grid item key={index} xs={12} sm={10} >
               <Card variant="outlined">
                 <CardContent
                   sx={{
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
+                    justifyContent: 'center'
                   }}
                 >
                   <Avatar
@@ -255,6 +274,43 @@ export default function TeamCards() {
                       </IconButton>
                     ))}
                   </Stack>
+                  {member.timeline && <Button onClick={ev => handleClickOpen(ev, index)}>More info {open ? <KeyboardArrowUpIcon
+                      fontSize="small"
+                      sx={{ mt: '1px', ml: '2px' }}
+                    /> : <KeyboardArrowDownIcon
+                      fontSize="small"
+                      sx={{ mt: '1px', ml: '2px' }}
+                    />}</Button>}
+                  { openIdx == index && <Timeline/>}
+                  {/*<Dialog
+                      open={open}
+                      onClose={handleClose}
+                      scroll={'paper'}
+                      disableEnforceFocus
+                      sx={{
+                        "& .MuiDialog-container": {
+                          "& .MuiPaper-root": {
+                            width: "100%",
+                            minWidth: '700px',
+                            maxWidth: "700px",  // Set your width here
+                          },
+                        },
+                        position: 'fixed',
+                        top: '15%',
+                        left: '50%',
+                        transform: 'translate(-50%, -10%)',
+                    }}
+                      aria-labelledby="scroll-dialog-title"
+                      aria-describedby="scroll-dialog-description"
+                    >
+                      <DialogTitle id="scroll-dialog-title">More info</DialogTitle>
+                      <DialogContent dividers={true}>
+                        <Timeline props={{display: 'flex', maxWidth: '90%'}}/>
+                      </DialogContent>
+                      <DialogActions>
+                        <Button onClick={handleClose}>Close</Button>
+                      </DialogActions>
+                    </Dialog>*/}
                 </CardContent>
               </Card>
             </Grid>

@@ -21,7 +21,6 @@ import { ReactComponent as MannaLogo } from "../assets/manna.svg";
 //import {ReactComponent as PGFullLogo} from "../assets/postgresql-full.svg";
 import { ReactComponent as SBFull } from "../assets/supabase-full.svg";
 //import {ReactComponent as VercelLogo} from "../assets/vercel.svg";
-//import {ReactComponent as SolanaLogo} from "../assets/solana.svg";
 import { ReactComponent as RedisFullLogo } from "../assets/redis-full.svg";
 //import {ReactComponent as DenoLogo} from "../assets/deno.svg";
 import { ReactComponent as GoFullLogo } from "../assets/golang-full.svg";

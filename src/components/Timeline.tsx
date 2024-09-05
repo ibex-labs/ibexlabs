@@ -40,15 +40,17 @@ import {
   Vercel
 } from "./logo";
 import CardContent from "@mui/material/CardContent";
-import {CardMedia, ImageList, ImageListItem, List, ListItem} from "@mui/material";
+import {CardMedia, ImageList, ImageListItem, List, ListItem, SvgIcon} from "@mui/material";
 import {Image} from "mui-image";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {ExpandMore, KeyboardArrowUp} from '@mui/icons-material';
+import {ReactComponent as RenderLogo} from "../assets/render.svg";
 
 const nationIcons = [
   <TS/>,
   <Rust1/>,
-  <Solana/>,
+  <Image src={"solana.png"} duration={0}/>,
+  //<Solana/>,
   <Vercel/>,
   <Redis/>,
   <Postgres/>,
@@ -58,11 +60,13 @@ const nationIcons = [
 const renderIcons = [
   <TS/>,
   <Rust/>,
-  <Solana/>,
+  <Image src={"solana.png"} duration={0}/>,
+  //<Solana/>,
   <Vercel/>,
   <Docker/>,
   <Kubernetes/>,
-  <Grafana/>,
+  <Image src={"grafana.png"} duration={0}/>,
+  //<Grafana/>,
   <Prometheus/>,
   <Redis/>,
   <Postgres/>
@@ -71,7 +75,7 @@ const renderIcons = [
 const items = [
 
   {
-    icon1: <Render width={30} height={30}/>,
+    icon1:  <Render width={30} height={30}/>,
     icon2: <RenderFoundation1 height={50} width={100}/>,
     title: 'Render Foundation',
     description:
@@ -120,10 +124,27 @@ const items = [
                 </ListItem>
                 <ListItem disablePadding={true} sx={{ display: 'list-item' }} >
                     <Typography variant={'body2'}>
-                        token bridge so users can convert their ETH RNDR for Solana RENDER via <Link href={'https://wormhole.com/'} target={"_blank"}>wormhole</Link> and receive incentives for doing so
+                        token bridge so users can convert their ETH RNDR for Solana RENDER via <Link href={'https://wormhole.com/'} target={"_blank"}>wormhole</Link> and receive incentives for doing so. Performed CEX migrations for Binance, Kraken, Coinbase, etc in excess $1 billion
                     </Typography>
                 </ListItem>
+              <ListItem disablePadding={true} sx={{ display: 'list-item' }} >
+                <Typography variant={'body2'}>
+                  the automation of network payment channels.
+                  <ul>
+                    <li>
+                      - node operators - operators running nodes that render jobs in the network receive compensation in RENDER each week
+                    </li>
+                    <li>
+                      - upgrade rewards - users are incentivized with monthly RENDER rewards for migrating ETH RNDR -{'>'} SOL RENDER as early as possible
+                    </li>
+                    <li>
+                      - partnerships - users whose nodes also perform compute in <Link href={'https://io.net'}>io.net</Link>'s network receive RENDER payouts each month
+                    </li>
+                  </ul>
+                </Typography>
+              </ListItem>
             </List>
+          <br/>
           <Typography variant={'caption'} fontWeight={'bold'}>
             Tech
           </Typography><br/>
@@ -134,7 +155,7 @@ const items = [
                 <br/>
                 Token bridge relayer to redeem wormhole VAAs for RENDER Solana side
                 <br/>
-                stats dashboard backed by Postgres that node operators and holders can utilize to track down their payments
+                stats dashboard backed by Postgres that node operators and holders can utilize to track down their payments, see network stats. With a full accounting dashboard for internal stakeholders to track all movements across the network and generate reports
                 <br/>
                 all running in a Kubernetes cluster with Grafana/Prometheus/Alertmanager/Loki/Tempo observability stack, Pagerduty alerting, Vault and <Link href={'https://bank-vaults.dev/'} target={'_blank'}>bank-vaults.dev</Link> for secret management and injection, Nginx ingress
             </Typography>
@@ -188,7 +209,7 @@ const items = [
           </List>
           <ImageList  sx={{width: nationIcons.length * 22 , height: 30, paddingTop: 1}} cols={nationIcons.length}>
             {[
-              <Supabase/>,
+              <Image src={"supabase.png"} duration={0}/>,
               <Vercel/>,
               <Solana/>
             ].map((x, i) =>
@@ -290,7 +311,7 @@ const items = [
   }
 ];
 
-export default function Timeline1() {
+export default function Timeline1(p: {style?: any} = {}) {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
   const [addtlContentIdx, setAddtlContentIdx] = React.useState(-1);
   const [addtlContentOpen, setAddtlContentOpen] = React.useState(false);
@@ -302,7 +323,7 @@ export default function Timeline1() {
   const selectedFeature = items[selectedItemIndex];
 
   return (
-    <Container id="features" sx={{pt: {xs: 8, sm: 16}}}>
+    <Container id="features" sx={{...p.style}}>
       <Timeline sx={{
         [`& .${timelineOppositeContentClasses.root}`]: {
           flex: 0.1,
@@ -328,6 +349,7 @@ export default function Timeline1() {
                 </TimelineOppositeContent>
                 <TimelineSeparator>
                   <TimelineConnector />
+                  {/* @ts-ignore */}
                   {icon1}
                   {/*<TimelineDot>
                 </TimelineDot>*/}
@@ -391,8 +413,8 @@ export default function Timeline1() {
                 sx={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  '& > svg': { transition: '0.2s' },
-                  '&:hover > svg': { transform: 'translateX(2px)' },
+                  /*'& > svg': { transition: '0.2s' },
+                  '&:hover > svg': { transform: 'translateX(2px)' },*/
                 }}
                 onClick={(event) => {
                   if (addtlContentOpen) {
@@ -451,8 +473,8 @@ export default function Timeline1() {
                     sx={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      '& > svg': { transition: '0.2s' },
-                      '&:hover > svg': { transform: 'translateX(2px)' },
+                      //'& > svg': { transition: '0.2s' },
+                      //'&:hover > svg': { transform: 'translateX(2px)' },
                     }}
                     onClick={(event) => {
                       if (addtlContentOpen) {
@@ -515,7 +537,7 @@ export default function Timeline1() {
                     {icon2}
                   </Box>
 
-                  <div>
+                  <Box>
                     <Typography
                       color="text.primary"
                       variant="body2"
@@ -523,7 +545,7 @@ export default function Timeline1() {
                     >
                       {title}
                     </Typography>
-                    {description}
+                    <Box>{description}</Box>
                       <span>Show {index == addtlContentIdx && addtlContentOpen ? 'less': 'more'}</span>
                       {index == addtlContentIdx && addtlContentOpen ? <KeyboardArrowUpIcon
                         fontSize="small"
@@ -533,7 +555,7 @@ export default function Timeline1() {
                         sx={{ mt: '1px', ml: '2px' }}
                       />}
                     {index == addtlContentIdx && addtlContent}
-                  </div>
+                  </Box>
                 </Box>
               </Card>
                   </Link>

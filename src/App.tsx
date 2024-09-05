@@ -469,7 +469,7 @@ function App() {
                 </div>*/}
               </Container>
             </Box>
-            <Timeline/>
+            {/*<Timeline style={{pt: {xs: 8, sm: 16}}} />*/}
             <Stack paddingTop={1} spacing={2}>
               <div>
                 <Element name={'services'}>
