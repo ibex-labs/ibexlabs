@@ -1,0 +1,127 @@
+{
+  "basics": {
+    "name": "Alex Milkov",
+    "label": "Software Engineer",
+    "email": "alex@ibex.trade",
+    "phone": "+1 (404) 317-1005 +359 (87) 949-2717",
+    "summary": "More recent expertise in blockchain and protocol development on Solana. Background in distributed systems and programming language theory. Strongest across TypeScript, Go, Rust backend systems and shipping end-to-end products for small teams. Have picked up FE and devops in recent years and can ramp quickly on any domain",
+    "location": {
+      "city": "Remote"
+    }
+  },
+  "work": [
+    {
+    "company": "Ibex Labs Ltd.",
+    "position": "Founder",
+    "website": "https://ibexlabs.xyz",
+    "startDate": "Oct 2022",
+    "highlights": [
+      "Boutique software consultancy focused on Solana, Rust, Typescript, backend systems, and shipping end-to-end products for small teams.",
+      "Nation (Oct 2022 - (advisory) Present): Built products across Nation's Solana ecosystem, including the core DAO platform, Vellum (a DocuSign-like document signing product on Solana with GPT-assisted drafting and post-signature actions), and Caro (a low-latency real-time auction engine embedded in Shopify storefronts).",
+      "Render Foundation (May 2023 - (advisory) Present):  Sole engineer for Render's Ethereum-to-Solana migration (top-25 CMC project). Anchor programs (burn-mint equil, payments, token bridge, cNFT tokenization), TypeScript services/cranks, adhoc CEX migrations (custodying and burning $1B+ in tokens for Binance), payment channel automation, FE dashboards, accounting, and full EKS infrastructure (Grafana/Prometheus/Loki/Tempo, PagerDuty, Vault + bank-vaults secret injection, automated postgres and redis backups to ECS). Hired and led the team to hand off to",
+      "CFI (Jan 2026 - Present): Building onchain lending infrastructure for agricultural loans, including Solana programs, backend services, and surrounding product and ops systems."
+    ]
+  },
+    {
+    "company": "Square (Block)",
+    "position": "Senior Software Engineer",
+    "website": "https://block.xyz",
+    "startDate": "Jul 2019",
+    "endDate": "Oct 2022",
+    "highlights": [
+      "Inventory team: Backend end services (Go) which manage merchant inventory (counts, costs, etc) and provide reporting",
+      "Items team: Backend service (Go) which manages merchant catalogs (what they sell). Datastore is sharded MySQL. Search is backed by Elasticsearch. Rearchitected next generation of this service which is a generic object store all teams can use, backed again by MySQL",
+      "Introduced Rust to Square by porting internal libraries necessary to run a service in Square's environments. (gRPC + HTTP server framework, clients, custom protobuf compiler, admin console, MySQL + Redis integration, logging, metrics, Envoy, builds, feeds, jobs, etc)",
+      "Lots of design docs, PR reviews, interviews, and documentation writing"
+    ]
+  },
+  {
+    "company": "Comcast",
+    "position": "Senior Software Engineer (Contract)",
+    "website": "https://weather.com",
+    "startDate": "Jun 2018",
+    "endDate": "Dec 2018",
+    "highlights": [
+      "Full stack work on isomorphic system - Scala.js + React bindings, Scala backend (heavy functional programming shop) - enabling operators to remotely manage the configuration of hundreds of thousands of newly rolled out networking devices"
+    ]
+  },
+  {
+    "company": "The Weather Company (IBM)",
+    "position": "Senior Software Engineer",
+    "website": "https://weather.com",
+    "startDate": "Sep 2016",
+    "endDate": "Jun 2019",
+    "highlights": [
+      "Migrated services to EKS (AWS's managed Kubernetes) and carved out best practices and recommended tooling (Prometheus, Alertmanager, Grafana, Loki, nginx-ingress, etc) as part of org-wide migration to IBM Cloud",
+      "Responsible for developing and maintaining user profile system (Scala) that manages all user data such as subscriptions, locations, demographics, and device endpoints",
+      "Responsible for developing and maintaining alerting system (Scala), which fetches user subscriptions, populates content templates, and distributes them to devices",
+      "Lead initiatives to adopt libraries and develop tooling in the purely functional side of the Scala ecosystem. Mentored engineers in functional programming language theory"
+    ]
+  }
+  ],
+  "education": [
+    {
+      "institution": "Georgia Institute of Technology",
+      "area": "Computer Science",
+      "studyType": "M.S.",
+      "startDate": "Jan 2015",
+      "endDate": "Dec 2018"
+    },
+    {
+      "institution": "Georgia Institute of Technology",
+      "area": "Industrial Engineering",
+      "studyType": "B.S.",
+      "startDate": "Aug 2011",
+      "endDate": "Dec 2014"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Languages",
+      "keywords": [
+        "Rust",
+        "TypeScript",
+        "Go",
+        "Python",
+        "Scala",
+        "SQL",
+        "JavaScript",
+        "Haskell",
+        "Clojure",
+        "Java"
+      ]
+    },
+    {
+      "name": "Blockchain",
+      "keywords": [
+        "Solana",
+        "Sui",
+        "Ethereum"
+      ]
+    },
+    {
+      "name": "Datastores",
+      "keywords": [
+        "Postgres",
+        "Redis",
+        "MySQL",
+        "MongoDB",
+        "Elasticsearch",
+        "ArangoDB"
+      ]
+    },
+    {
+      "name": "Infrastructure",
+      "keywords": [
+        "Terraform",
+        "Kubernetes",
+        "AWS",
+        "Docker",
+        "Grafana",
+        "Prometheus",
+        "Vercel",
+        "Supabase"
+      ]
+    }
+  ]
+}
