@@ -19,7 +19,8 @@
       "Boutique software consultancy focused on Solana, Rust, Typescript, backend systems, and shipping end-to-end products for small teams.",
       "Nation (Oct 2022 - (advisory) Present): Built products across Nation's Solana ecosystem, including the core DAO platform, Vellum (a DocuSign-like document signing product on Solana with GPT-assisted drafting and post-signature actions), and Caro (a low-latency real-time auction engine embedded in Shopify storefronts).",
       "Render Foundation (May 2023 - (advisory) Present):  Sole engineer for Render's Ethereum-to-Solana migration (top-25 CMC project). Anchor programs (burn-mint equil, payments, token bridge, cNFT tokenization), TypeScript services/cranks, adhoc CEX migrations (custodying and burning $1B+ in tokens for Binance), payment channel automation, FE dashboards, accounting, and full EKS infrastructure (Grafana/Prometheus/Loki/Tempo, PagerDuty, Vault + bank-vaults secret injection, automated postgres and redis backups to ECS). Hired and led the team to hand off to",
-      "CFI (Jan 2026 - Present): Building onchain lending infrastructure for agricultural loans, including Solana programs, backend services, and surrounding product and ops systems."
+      "CFI (Jan 2026 - Present): Building onchain lending infrastructure for agricultural loans, including Solana programs, backend services, and surrounding product and ops systems.",
+      "OTOY Studio (May 2026 - Present): Scaling backend infrastructure for OTOY's AI media platform (canvas.otoy.com) from 50 beta users to 10k. Media pipeline architecture across FAL inference, Neon Postgres, and Cloudflare R2. Streaming asset copy via Cloudflare Workers, webhook-based job completion, schema hardening, and real-time notification layer."
     ]
   },
     {

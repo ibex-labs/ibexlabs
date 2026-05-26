@@ -76,6 +76,33 @@ const proofPoints = [
     ],
   },
   {
+    title: "OTOY Studio",
+    href: "https://canvas.otoy.com",
+    logoSrc: "/logos/otoy.svg",
+    logoAlt: "OTOY logo",
+    logoWidth: 120,
+    logoHeight: 48,
+    logoClassName:
+      "h-12 w-auto max-w-[9.5rem] shrink-0 rounded-md object-contain shadow-sm",
+    eyebrow: "AI media platform — scaling infrastructure",
+    description:
+      "Scaling backend infrastructure for OTOY Studio, a node-based canvas for chaining AI image, video, voice, and 3D models. Taking the platform from 50 beta users to 10k.",
+    bullets: [
+      "Media pipeline architecture: async job orchestration across FAL inference, Neon Postgres, and Cloudflare R2",
+      "Streaming FAL→R2 copy via Cloudflare Workers to eliminate Vercel hop and cut copy costs ~98%",
+      "Job completion reliability: webhook integration, recovery flows, and cron-based retry for durable asset persistence",
+      "Schema and query hardening for scale: partitioning, capacity planning, and billing system consolidation",
+    ],
+    technicalDetails: [
+      "OTOY Studio is a ReactFlow-based canvas that lets users wire AI models (image, video, voice, 3D via fal.ai) into production pipelines. The backend orchestrates graph execution, async job submission, output persistence, and durable storage on Cloudflare R2.",
+      "Architected the media pipeline from Vercel serverless to Cloudflare Workers for FAL→R2 asset copy, eliminating the extra Vercel hop and leveraging R2 binding for same-account low-latency writes with ~98% cost reduction.",
+      "Designed FAL webhook integration to replace fragile serverless polling (subscribe loops killed by Vercel function freezes), with client-side recovery via stale-job sync and cron retry sweeps.",
+      "Hardening Neon Postgres schema for 200× scale: addressing unbounded JSONB workflow graph storage, workflow version snapshot explosion, timestamp timezone handling, and concurrent billing race conditions.",
+      "Building real-time notification layer (ElectricSQL or Ably) to replace TanStack Query polling of job status, reducing DB read load at scale.",
+      "R2 lifecycle and garbage collection policy: retention rules, orphan cleanup, and quota enforcement for a storage model that currently keeps everything indefinitely.",
+    ],
+  },
+  {
     title: "Nation",
     href: "https://nation.io",
     logoSrc: "/logos/nation.svg",
@@ -138,8 +165,8 @@ const engagementShapes = [
 const credibility = [
   "Led Render ETH -> Solana migration work",
   "Building onchain lending infrastructure for CFi",
+  "Scaling AI media platform infrastructure for OTOY",
   "Backend and distributed systems background",
-  "Solana-first, Sui-capable",
 ];
 
 const howIWork = [
@@ -158,6 +185,7 @@ const stack = [
   "Postgres",
   "Redis",
   "Kubernetes",
+  "Cloudflare Workers",
   "Grafana",
   "Prometheus",
   "Vercel",
