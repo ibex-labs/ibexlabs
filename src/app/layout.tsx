@@ -23,9 +23,9 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ibex Labs | Solana Systems Engineering",
+  title: "Ibex Labs | Backend & Infrastructure Engineering",
   description:
-    "Solana, Rust, and backend systems engineering for production onchain products.",
+    "Senior backend engineering for AI infrastructure and onchain systems. Rust, TypeScript, Postgres, and production operations.",
   icons: {
     icon: "/ibex192.png",
     apple: "/ibex192.png",

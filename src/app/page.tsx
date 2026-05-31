@@ -3,6 +3,7 @@ import {
   ArrowUpRight,
   CheckCircle2,
   Code2,
+  Cpu,
   Database,
   Network,
   ShieldCheck,
@@ -18,9 +19,39 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
-const proofPoints = [
+const aiProjects = [
   {
-    title: "Render Network",
+    title: "OTOY Studio",
+    href: "https://canvas.otoy.ai",
+    logoSrc: "/logos/otoy.svg",
+    logoAlt: "OTOY logo",
+    logoWidth: 120,
+    logoHeight: 48,
+    logoClassName:
+      "h-12 w-auto max-w-[9.5rem] shrink-0 rounded-md object-contain shadow-sm",
+    eyebrow: "AI media platform — scaling infrastructure",
+    description:
+      "Scaling backend infrastructure for OTOY Studio, a node-based canvas for chaining AI image, video, voice, and 3D models. Taking the platform from 50 beta users to 10k.",
+    bullets: [
+      "Media pipeline architecture: async job orchestration across FAL inference, Neon Postgres, and Cloudflare R2",
+      "Streaming FAL→R2 copy via Cloudflare Workers to eliminate Vercel hop and cut copy costs ~98%",
+      "Job completion reliability: webhook integration, recovery flows, and cron-based retry for durable asset persistence",
+      "Schema and query hardening for scale: partitioning, capacity planning, and billing system consolidation",
+    ],
+    technicalDetails: [
+      "OTOY Studio is a ReactFlow-based canvas that lets users wire AI models (image, video, voice, 3D via fal.ai) into production pipelines. The backend orchestrates graph execution, async job submission, output persistence, and durable storage on Cloudflare R2.",
+      "Architected the media pipeline from Vercel serverless to Cloudflare Workers for FAL→R2 asset copy, eliminating the extra Vercel hop and leveraging R2 binding for same-account low-latency writes with ~98% cost reduction.",
+      "Designed FAL webhook integration to replace fragile serverless polling (subscribe loops killed by Vercel function freezes), with client-side recovery via stale-job sync and cron retry sweeps.",
+      "Hardening Neon Postgres schema for 200× scale: addressing unbounded JSONB workflow graph storage, workflow version snapshot explosion, timestamp timezone handling, and concurrent billing race conditions.",
+      "Building real-time notification layer (ElectricSQL or Ably) to replace TanStack Query polling of job status, reducing DB read load at scale.",
+      "R2 lifecycle and garbage collection policy: retention rules, orphan cleanup, and quota enforcement for a storage model that currently keeps everything indefinitely.",
+    ],
+  },
+];
+
+const onchainProjects = [
+  {
+    title: "Render Foundation",
     href: "https://renderfoundation.com/",
     logoSrc: "/logos/render.svg",
     logoAlt: "Render Network logo",
@@ -28,7 +59,7 @@ const proofPoints = [
     logoHeight: 56,
     logoClassName:
       "h-14 w-14 shrink-0 rounded-full object-contain bg-background p-1 ring-1 ring-border",
-    eyebrow: "ETH -> Solana migration",
+    eyebrow: "ETH → Solana migration",
     description:
       "Led core Solana protocol and backend work for Render's migration from Ethereum to Solana, including emissions, bridging, rewards, accounting, dashboards, and production operations.",
     bullets: [
@@ -76,33 +107,6 @@ const proofPoints = [
     ],
   },
   {
-    title: "OTOY Studio",
-    href: "https://canvas.otoy.com",
-    logoSrc: "/logos/otoy.svg",
-    logoAlt: "OTOY logo",
-    logoWidth: 120,
-    logoHeight: 48,
-    logoClassName:
-      "h-12 w-auto max-w-[9.5rem] shrink-0 rounded-md object-contain shadow-sm",
-    eyebrow: "AI media platform — scaling infrastructure",
-    description:
-      "Scaling backend infrastructure for OTOY Studio, a node-based canvas for chaining AI image, video, voice, and 3D models. Taking the platform from 50 beta users to 10k.",
-    bullets: [
-      "Media pipeline architecture: async job orchestration across FAL inference, Neon Postgres, and Cloudflare R2",
-      "Streaming FAL→R2 copy via Cloudflare Workers to eliminate Vercel hop and cut copy costs ~98%",
-      "Job completion reliability: webhook integration, recovery flows, and cron-based retry for durable asset persistence",
-      "Schema and query hardening for scale: partitioning, capacity planning, and billing system consolidation",
-    ],
-    technicalDetails: [
-      "OTOY Studio is a ReactFlow-based canvas that lets users wire AI models (image, video, voice, 3D via fal.ai) into production pipelines. The backend orchestrates graph execution, async job submission, output persistence, and durable storage on Cloudflare R2.",
-      "Architected the media pipeline from Vercel serverless to Cloudflare Workers for FAL→R2 asset copy, eliminating the extra Vercel hop and leveraging R2 binding for same-account low-latency writes with ~98% cost reduction.",
-      "Designed FAL webhook integration to replace fragile serverless polling (subscribe loops killed by Vercel function freezes), with client-side recovery via stale-job sync and cron retry sweeps.",
-      "Hardening Neon Postgres schema for 200× scale: addressing unbounded JSONB workflow graph storage, workflow version snapshot explosion, timestamp timezone handling, and concurrent billing race conditions.",
-      "Building real-time notification layer (ElectricSQL or Ably) to replace TanStack Query polling of job status, reducing DB read load at scale.",
-      "R2 lifecycle and garbage collection policy: retention rules, orphan cleanup, and quota enforcement for a storage model that currently keeps everything indefinitely.",
-    ],
-  },
-  {
     title: "Nation",
     href: "https://nation.io",
     logoSrc: "/logos/nation.svg",
@@ -132,7 +136,74 @@ const proofPoints = [
   },
 ];
 
+function ProjectCard({ project }: { project: typeof onchainProjects[number] }) {
+  return (
+    <Card className="overflow-hidden">
+      <CardHeader className="space-y-4">
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <Badge variant="outline" className="w-fit">
+            {project.eyebrow}
+          </Badge>
+          <Image
+            src={project.logoSrc}
+            alt={project.logoAlt}
+            width={project.logoWidth}
+            height={project.logoHeight}
+            unoptimized
+            className={project.logoClassName}
+          />
+        </div>
+        <div>
+          <CardTitle className="font-heading text-2xl">
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noreferrer"
+              className="underline-offset-4 transition hover:underline"
+            >
+              {project.title}
+            </a>
+          </CardTitle>
+          <CardDescription className="mt-3 text-base leading-7">
+            {project.description}
+          </CardDescription>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <Separator className="mb-5" />
+        <ul className="space-y-3 text-sm text-muted-foreground">
+          {project.bullets.map((bullet) => (
+            <li key={bullet} className="flex gap-3">
+              <span className="mt-2 size-1.5 shrink-0 rounded-full bg-foreground/70" />
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+        <details className="group mt-6 rounded-2xl border bg-muted/20 p-4 text-sm">
+          <summary className="cursor-pointer list-none font-mono uppercase tracking-[0.18em] text-muted-foreground transition hover:text-foreground">
+            Technical details
+            <span className="ml-2 inline-block transition group-open:rotate-90">-&gt;</span>
+          </summary>
+          <ul className="mt-4 space-y-3 text-muted-foreground">
+            {project.technicalDetails.map((detail) => (
+              <li key={detail} className="flex gap-3">
+                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-foreground/50" />
+                <span>{detail}</span>
+              </li>
+            ))}
+          </ul>
+        </details>
+      </CardContent>
+    </Card>
+  );
+}
+
 const capabilities = [
+  {
+    icon: Cpu,
+    title: "AI infrastructure",
+    body: "Async job orchestration, media/data pipelines, model integration, streaming storage, and the backend plumbing that makes AI products work at scale.",
+  },
   {
     icon: Network,
     title: "Solana protocol work",
@@ -140,56 +211,58 @@ const capabilities = [
   },
   {
     icon: Database,
-    title: "Backend integration",
-    body: "TypeScript services, indexers, cranks, Postgres, Redis, observability, idempotency, retries, and operational dashboards.",
+    title: "Backend systems",
+    body: "TypeScript and Rust services, Postgres, Redis, event-driven pipelines, observability, idempotency, and operational dashboards.",
   },
   {
     icon: ShieldCheck,
     title: "Production hardening",
-    body: "Tests, edge cases, operational visibility, failure modes, and the unglamorous work that keeps shipped systems from surprising you.",
+    body: "Scale prep, failure modes, schema optimization, monitoring, and the unglamorous work that keeps shipped systems from surprising you.",
   },
   {
     icon: Code2,
     title: "Full-stack execution",
-    body: "Enough frontend to ship workflows, enough infra to run them, and enough protocol context to keep the system coherent.",
+    body: "Enough frontend to ship workflows, enough infra to run them, and enough domain context to keep the system coherent.",
   },
 ];
 
 const engagementShapes = [
-  "Solana programs and protocol integrations",
-  "Rust/TypeScript backend services around onchain systems",
-  "Frontend, dev ops, observability, alerting, and anything else needed",
+  "AI backend infrastructure and model integration pipelines",
+  "Solana programs and onchain protocol integrations",
+  "Rust/TypeScript backend services and data pipelines",
+  "Production operations, scaling, and hardening",
   "Working products delivered end-to-end",
 ];
 
 const credibility = [
-  "Led Render ETH -> Solana migration work",
-  "Building onchain lending infrastructure for CFi",
   "Scaling AI media platform infrastructure for OTOY",
-  "Backend and distributed systems background",
+  "Led Render ETH → Solana migration work",
+  "Building onchain lending infrastructure for CFi",
+  "Backend and distributed systems background (Block/Square, IBM)",
 ];
 
 const howIWork = [
   "High-agency and comfortable with incomplete specs",
   "Async-friendly, but direct when a decision needs to be made",
-  "Strongest where protocol, backend, product, and ops overlap",
+  "Strongest where backend, infrastructure, product, and ops overlap",
   "Prefer small teams, real ownership, and work that ships",
 ];
 
 const stack = [
-  "Solana",
-  "Anchor",
   "Rust",
   "TypeScript",
-  "Sui/Move",
+  "Go",
+  "Solana",
+  "Anchor",
   "Postgres",
   "Redis",
-  "Kubernetes",
   "Cloudflare Workers",
+  "Kubernetes",
+  "Vercel",
+  "Neon",
+  "Supabase",
   "Grafana",
   "Prometheus",
-  "Vercel",
-  "Supabase",
 ];
 
 export default function Home() {
@@ -231,15 +304,16 @@ export default function Home() {
         <section id="top" className="grid gap-10 pt-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:pt-24">
           <div className="space-y-8">
             <Badge variant="secondary" className="w-fit">
-              Solana / Rust / backend systems
+              AI infrastructure / Solana / backend systems
             </Badge>
             <div className="space-y-6">
               <h1 className="font-heading max-w-4xl text-5xl font-semibold tracking-tight text-balance sm:text-6xl lg:text-7xl">
-                Production engineering for onchain systems.
+                Senior backend engineering for production systems.
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
-                I&apos;m Alex, a senior backend and Solana engineer. I build Solana programs, Rust/TypeScript
-                backend services, and the operational glue around real onchain products.
+                I&apos;m Alex, a senior backend engineer. I build AI infrastructure, onchain protocols,
+                and the Rust/TypeScript services and ops around real products — from early architecture
+                through scale.
               </p>
             </div>
             <div className="grid gap-2 sm:grid-cols-2">
@@ -272,7 +346,7 @@ export default function Home() {
             <CardHeader>
               <CardTitle className="font-heading">What I do</CardTitle>
               <CardDescription>
-                The work I&apos;m strongest at lives between protocol code, backend systems, and product execution.
+                The work I&apos;m strongest at lives between infrastructure, backend systems, and product execution.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -286,74 +360,34 @@ export default function Home() {
           </Card>
         </section>
 
-        <section id="work" className="space-y-8">
+        <section id="work" className="space-y-16">
           <div className="max-w-2xl space-y-3">
             <p className="font-mono text-sm uppercase tracking-[0.25em] text-muted-foreground">Proof</p>
             <h2 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
-              Work that maps real businesses onto Solana.
+              Shipped work across AI and onchain systems.
             </h2>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-2">
-            {proofPoints.map((project) => (
-              <Card key={project.title} className="overflow-hidden">
-                <CardHeader className="space-y-4">
-                  <div className="flex flex-wrap items-start justify-between gap-4">
-                    <Badge variant="outline" className="w-fit">
-                      {project.eyebrow}
-                    </Badge>
-                    <Image
-                      src={project.logoSrc}
-                      alt={project.logoAlt}
-                      width={project.logoWidth}
-                      height={project.logoHeight}
-                      unoptimized
-                      className={project.logoClassName}
-                    />
-                  </div>
-                  <div>
-                    <CardTitle className="font-heading text-2xl">
-                      <a
-                        href={project.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline-offset-4 transition hover:underline"
-                      >
-                        {project.title}
-                      </a>
-                    </CardTitle>
-                    <CardDescription className="mt-3 text-base leading-7">
-                      {project.description}
-                    </CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <Separator className="mb-5" />
-                  <ul className="space-y-3 text-sm text-muted-foreground">
-                    {project.bullets.map((bullet) => (
-                      <li key={bullet} className="flex gap-3">
-                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-foreground/70" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <details className="group mt-6 rounded-2xl border bg-muted/20 p-4 text-sm">
-                    <summary className="cursor-pointer list-none font-mono uppercase tracking-[0.18em] text-muted-foreground transition hover:text-foreground">
-                      Technical details
-                      <span className="ml-2 inline-block transition group-open:rotate-90">-&gt;</span>
-                    </summary>
-                    <ul className="mt-4 space-y-3 text-muted-foreground">
-                      {project.technicalDetails.map((detail) => (
-                        <li key={detail} className="flex gap-3">
-                          <span className="mt-2 size-1.5 shrink-0 rounded-full bg-foreground/50" />
-                          <span>{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="space-y-4">
+            <h3 className="font-mono text-sm uppercase tracking-[0.25em] text-muted-foreground">
+              AI Infrastructure
+            </h3>
+            <div className="grid gap-5 lg:grid-cols-2">
+              {aiProjects.map((project) => (
+                <ProjectCard key={project.title} project={project} />
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="font-mono text-sm uppercase tracking-[0.25em] text-muted-foreground">
+              Onchain / Web3
+            </h3>
+            <div className="grid gap-5 lg:grid-cols-2">
+              {onchainProjects.map((project) => (
+                <ProjectCard key={project.title} project={project} />
+              ))}
+            </div>
           </div>
 
           <details className="group rounded-3xl border bg-card p-5 sm:p-6">
@@ -397,8 +431,8 @@ export default function Home() {
               The technical surface I cover.
             </h2>
             <p className="text-muted-foreground">
-              Best fit is Solana/Sui, RWA, credit, stablecoin, payments, migration, and protocol-adjacent
-              teams where backend systems and onchain code have to work together cleanly.
+              Best fit is AI-native products, onchain finance, payments, protocol infrastructure,
+              and any team where backend systems, data pipelines, and product have to work together cleanly.
             </p>
           </div>
 
@@ -425,16 +459,18 @@ export default function Home() {
           <Card>
             <CardHeader>
               <p className="font-mono text-sm uppercase tracking-[0.25em] text-muted-foreground">About</p>
-              <CardTitle className="font-heading text-2xl">Backend/distributed systems background, now mostly Solana.</CardTitle>
+              <CardTitle className="font-heading text-2xl">Backend and distributed systems engineer.</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4 text-sm leading-7 text-muted-foreground">
               <p>
-                I started in backend and distributed systems, then moved into blockchain work over the last few
-                years. My goal is to deliver exactly the product required in the simplest, most durable way possible.
+                Started in backend and distributed systems at various companies, then spent the last four years
+                shipping onchain products on Solana. Now also building AI infrastructure — the same patterns
+                (async orchestration, streaming pipelines, production ops) applied to a different domain.
               </p>
               <p>
                 I fit best with small, serious teams building real products where correctness, reliability, and
-                speed all matter.
+                speed all matter. My goal is to deliver exactly the product required in the simplest, most
+                durable way possible.
               </p>
             </CardContent>
           </Card>
@@ -480,8 +516,8 @@ export default function Home() {
               Building something where this background fits?
             </h2>
             <p className="max-w-2xl text-muted-foreground">
-              Send a short note with what you are building and where Solana, backend systems, or onchain finance
-              complexity enters the picture.
+              Whether it&apos;s AI infrastructure, onchain systems, or backend at scale — send a short note
+              with what you&apos;re building and where complexity enters the picture.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
