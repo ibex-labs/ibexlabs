@@ -22,7 +22,7 @@ import { Separator } from "@/components/ui/separator";
 const aiProjects = [
   {
     title: "OTOY Studio",
-    href: "https://canvas.otoy.ai",
+    href: "https://canvas.otoy.com",
     logoSrc: "/logos/otoy.svg",
     logoAlt: "OTOY logo",
     logoWidth: 120,
