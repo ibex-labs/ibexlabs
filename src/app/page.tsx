@@ -335,7 +335,7 @@ export default function Home() {
               </a>
               <a
                 className="inline-flex h-11 items-center justify-center rounded-lg border border-border bg-background px-5 text-sm font-medium transition hover:bg-muted"
-                href="mailto:alex@ibex.trade"
+                href="mailto:alex@ibexlabs.xyz"
               >
                 Email Alex
               </a>
@@ -532,9 +532,9 @@ export default function Home() {
             </a>
             <a
               className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border bg-background px-5 text-sm font-medium transition hover:bg-muted"
-              href="mailto:alex@ibex.trade"
+              href="mailto:alex@ibexlabs.xyz"
             >
-              alex@ibex.trade
+              alex@ibexlabs.xyz
             </a>
           </div>
         </section>
